@@ -43,7 +43,7 @@ system("cls");
                 break;
                 case 2:
                 cout<<"Sub-menu volumenes"
-             "\n1. Esfera"
+            "\n1. Esfera"
             "\n2. Paralelepípedo"
             "\n3. Cubo"
             "\n4. Regresar al menú principal"
@@ -75,40 +75,40 @@ system("cls");
                  //monedas_(opc);
                 break;
                 case 5:
-cout<<"Ingrese la opcion a calcular"
-             "\n1. Convertir de decimal a binario"
-             "\n2. Convertir de decimal a octal"
-             "\n3. Convertir de decimal a hexadecimal"
-             "\n4. Convertir de binario a decimal"
+   cout<<"Ingrese la opcion a calcular"
+         "\n1. Convertir de decimal a binario"
+         "\n2. Convertir de decimal a octal"
+         "\n3. Convertir de decimal a hexadecimal"
+         "\n4. Convertir de binario a decimal"
              "\n5. Convertir de octal a decimal"
              "\nIngrese una opcion: ";
         cin>>opc;
              //numericos_(opc);
                 break;
                 case 6:
-  cout<< "Ingrese la opcion a calcular"
-                 "\n1. Ordenamiento de un arreglo"
-                 "\n2. Buscar un valor en un arreglo"
-                 "\n3. Suma de matrices"
-                 "\n4. Multiplicación de matrices"
-                 "\n5. Buscar un valor en una matriz"
-                 "\n6. Regresar al menú principal"
-                 "\nIngrese una opcion: ";
-                 cin>>opc;
-                 //arreglos_matrices(opc);
-                break;
+      cout<< "Ingrese la opcion a calcular"
+             "\n1. Ordenamiento de un arreglo"
+             "\n2. Buscar un valor en un arreglo"
+             "\n3. Suma de matrices"
+             "\n4. Multiplicación de matrices"
+             "\n5. Buscar un valor en una matriz"
+             "\n6. Regresar al menú principal"
+             "\nIngrese una opcion: ";
+              cin>>opc;
+              //arreglos_matrices(opc);
+             break;
                 case 7:
-  cout<<"Sub-menu Varios"
-                 "\n1. Distancia entre dos puntos"
-                 "\n2. Raíces de una función cuadrática"
-                 "\n3. Factorial"
-                 "\n4. Fibonacci"
-                 "\n5. Primo"
-                 "\n6. Números amigos"
-                 "\n7. Regresar al menú principal"
-                 "\n Ingrese una opcion: ";
-                 cin>>opc;
-                 //varios(opc);
+          cout<<"Sub-menu Varios"
+            "\n1. Distancia entre dos puntos"
+            "\n2. Raíces de una función cuadrática"
+            "\n3. Factorial"
+            "\n4. Fibonacci"
+            "\n5. Primo"
+            "\n6. Números amigos"
+            "\n7. Regresar al menú principal"
+            "\n Ingrese una opcion: ";
+            cin>>opc;
+            //varios(opc);
                 break;
                 case 8:
                system("cls");

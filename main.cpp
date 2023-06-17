@@ -99,14 +99,14 @@ system("cls");
              break;
                 case 7:
           cout<<"Sub-menu Varios"
-            "\n1. Distancia entre dos puntos"
-            "\n2. Raíces de una función cuadrática"
-            "\n3. Factorial"
-            "\n4. Fibonacci"
-            "\n5. Primo"
-            "\n6. Números amigos"
-            "\n7. Regresar al menú principal"
-            "\n Ingrese una opcion: ";
+     "\n1. Distancia entre dos puntos"
+     "\n2. Raíces de una función cuadrática"
+     "\n3. Factorial"
+     "\n4. Fibonacci"
+     "\n5. Primo"
+     "\n6. Números amigos"
+     "\n7. Regresar al menú principal"
+     "\nIngrese una opcion: ";
             cin>>opc;
             //varios(opc);
                 break;

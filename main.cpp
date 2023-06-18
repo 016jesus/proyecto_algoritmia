@@ -40,7 +40,7 @@ int main(){
    switch(opc){     
                 case 1:         
                 system("cls");
-                 cout<<opc;
+                 
   cout<<"Sub-menu areas"
               "\n1. Triangulo"
               "\n2. Circulo"
@@ -86,12 +86,13 @@ int main(){
                  //monedas_(opc);
                 break;
                 case 5:
-cout<<"Ingrese la opcion a calcular"
+cout<<"Sub-menu Sistemas Numericos"
              "\n1. Convertir de decimal a binario"
              "\n2. Convertir de decimal a octal"
              "\n3. Convertir de decimal a hexadecimal"
              "\n4. Convertir de binario a decimal"
              "\n5. Convertir de octal a decimal"
+             "\n6. Regresar al menu principal"
              "\nIngrese una opcion: ";
         cin>>opc;
              //numericos_(opc);

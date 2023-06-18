@@ -13,7 +13,7 @@ void varios_(int &opc);
 
 void opcion_invalida();
 
-int opc=0, i;
+int opc=0;
 
 int main(){
     system("cls");
@@ -140,7 +140,115 @@ cout<<"Sub-menu Sistemas Numericos"
      return 0;    
 }
 
+void areas_ (int &opc){
+    system("cls");
 
+    if (opc >=1 && opc <=4)
+    {
+        if (opc==1) //area del triangulo
+        {
+            if (opc<=0)
+            {
+               cout<<"Valor invalido"<<endl;
+                
+                system("pause");
+                
+                areas_(opc); 
+            }
+            
+            else 
+            {
+                float base, altura;
+                cout<<"ingrese el valor de la base: ";
+                cin>>base;
+                cout<<"ingrese el valor de la altura: "<<endl;
+                cin>>altura;
+                cout<<"el valor del area del triangulo es: "<<(base*altura)/2;
+            }
+        }
+
+        else if (opc==2) //area del circulo
+        {
+            if (opc<=0)
+            {
+               cout<<"Valor invalido"<<endl;
+                
+                system("pause");
+                
+                areas_(opc); 
+            }
+            
+            else 
+            {
+                float pi=3.141516, radio;
+                cout<<"ingrese el valor del radio : "<<endl;
+                cin>>radio;
+                cout<<"el valor del area del circulo es: "<<(pi*(pow(radio,2)));
+            }
+        }
+
+        else if (opc==3) //area del rectangulo
+        {
+            if (opc<=0)
+            {
+               cout<<"Valor invalido"<<endl;
+                
+                system("pause");
+                
+                areas_(opc); 
+            }
+            
+            else 
+            {
+                float base, altura;
+                cout<<"ingrese el valor de la base: ";
+                cin>>base;
+                cout<<"ingrese el valor de la altura: "<<endl;
+                cin>>altura;
+                cout<<"el valor del area del duadrado es: "<<(base*altura);
+            };
+        }
+
+        else if (opc==4) //area del cuadrado
+        {
+            if (opc<=0)
+            {
+               cout<<"Valor invalido"<<endl;
+                
+                system("pause");
+                
+                areas_(opc); 
+            }
+            
+            else 
+            {
+                float base, altura;
+                cout<<"ingrese el valor de la base: ";
+                cin>>base;
+                cout<<"ingrese el valor de la altura: "<<endl;
+                cin>>altura;
+                cout<<"el valor del area del duadrado es: "<<(base*altura);
+            };
+        }
+
+        else if (opc==5)
+        {
+            system("cls");
+            opc= opc- 5;
+            main;
+        }
+        
+        
+        opc=0;
+        main();
+
+        
+
+        
+        
+              
+    }  
+}
 
 void volumenes_(int &opc){
     system("cls");

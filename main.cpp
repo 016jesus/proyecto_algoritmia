@@ -13,10 +13,12 @@ void varios_(int &opc);
 
 void opcion_invalida();
 
-int opc=0;
+int opc=0, i;
 
 int main(){
     system("cls");
+
+    
     
     if (opc != 0){
     goto salto;

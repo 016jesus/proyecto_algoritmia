@@ -10,7 +10,7 @@ void monedas_(int &opc);
 void numericos_(int &opc);
 void arreglos_matrices(int &opc);
 void varios_(int &opc);
-
+//agrego un comentario de prueba
 void opcion_invalida();
 
 int opc=0, i;

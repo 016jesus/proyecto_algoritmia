@@ -51,7 +51,7 @@ int main(){
               "\n5. Regresar al menu principal"
               "\nIngrese una opcion: "; 
                 cin>>opc;
-               //areas_(opc);
+               areas_(opc);
                 break;
                 case 2:
                 system("cls");
@@ -140,114 +140,138 @@ cout<<"Sub-menu Sistemas Numericos"
      return 0;    
 }
 
+
+
+
+
 void areas_ (int &opc){
     system("cls");
 
-    if (opc >=1 && opc <=4)
+    if (opc >=1 && opc <=5)
     {
         if (opc==1) //area del triangulo
         {
-            if (opc<=0)
+            float base, altura;
+                cout<<"ingrese el valor de la base: ";
+                cin>>base;
+                cout<<"ingrese el valor de la altura: ";
+                cin>>altura;
+
+            if (base<=0 && altura<=0)
             {
-               cout<<"Valor invalido"<<endl;
-                
+               cout<<"Los valores no corresponden"<<endl;
                 system("pause");
-                
                 areas_(opc); 
             }
             
             else 
             {
-                float base, altura;
-                cout<<"ingrese el valor de la base: ";
-                cin>>base;
-                cout<<"ingrese el valor de la altura: "<<endl;
-                cin>>altura;
-                cout<<"el valor del area del triangulo es: "<<(base*altura)/2;
+                
+                cout<<"el valor del area del triangulo es: "<<(base*altura)/2<<endl;
+                system("pause");
+        
+                    opc=1;
+                    main();
             }
         }
 
         else if (opc==2) //area del circulo
         {
-            if (opc<=0)
+            float pi=3.141516, radio;
+                cout<<"ingrese el valor del radio : "<<endl;
+                cin>>radio;
+
+            if (radio<=0)
             {
-               cout<<"Valor invalido"<<endl;
-                
-                system("pause");
-                
+               cout<<"El valor no corresponde"<<endl;              
+                system("pause");                
                 areas_(opc); 
             }
             
             else 
             {
-                float pi=3.141516, radio;
-                cout<<"ingrese el valor del radio : "<<endl;
-                cin>>radio;
-                cout<<"el valor del area del circulo es: "<<(pi*(pow(radio,2)));
+                
+                cout<<"el valor del area del circulo es: "<<(pi*(pow(radio,2)))<<endl;
+                system("pause");
+        
+                    opc=1;
+                    main();
             }
         }
 
         else if (opc==3) //area del rectangulo
         {
-            if (opc<=0)
+            float base, altura;
+                cout<<"ingrese el valor de la base: ";
+                cin>>base;
+                cout<<"ingrese el valor de la altura: ";
+                cin>>altura;
+
+            if (base<=0 && altura<=0)
             {
-               cout<<"Valor invalido"<<endl;
-                
+               cout<<"Los valores no corresponden"<<endl;
                 system("pause");
-                
                 areas_(opc); 
             }
             
             else 
             {
-                float base, altura;
-                cout<<"ingrese el valor de la base: ";
-                cin>>base;
-                cout<<"ingrese el valor de la altura: "<<endl;
-                cin>>altura;
-                cout<<"el valor del area del duadrado es: "<<(base*altura);
+                
+                cout<<"el valor del area del rectangulo es: "<<(base*altura)<<endl;
+                system("pause");
+        
+                    opc=1;
+                    main();
             };
         }
 
         else if (opc==4) //area del cuadrado
         {
-            if (opc<=0)
+            float base, altura;
+                cout<<"ingrese el valor de la base: ";
+                cin>>base;
+                cout<<"ingrese el valor de la altura: ";
+                cin>>altura;
+
+            if (base<=0 && altura<=0)
             {
-               cout<<"Valor invalido"<<endl;
-                
+               cout<<"los valores no corresponden"<<endl;
                 system("pause");
-                
                 areas_(opc); 
             }
             
             else 
             {
-                float base, altura;
-                cout<<"ingrese el valor de la base: ";
-                cin>>base;
-                cout<<"ingrese el valor de la altura: "<<endl;
-                cin>>altura;
-                cout<<"el valor del area del duadrado es: "<<(base*altura);
+                
+                cout<<"el valor del area del duadrado es: "<<(base*altura)<<endl;
+                system("pause");
+        
+                    opc=1;
+                    main();
             };
         }
 
-        else if (opc==5)
+        else if (opc==5) //volver al menú principal
         {
             system("cls");
-            opc= opc- 5;
+            opc=0;
             main;
+            
         }
-        
-        
-        opc=0;
-        main();
 
-        
+        else 
+        {
+            opc = 1;
+            opcion_invalida(); 
+        }        
+    } 
+    
+    else
+    {
+        opc = 1;
+        opcion_invalida();
+    } 
 
-        
-        
-              
-    }  
 }
 
 void volumenes_(int &opc){

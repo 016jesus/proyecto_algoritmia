@@ -12,6 +12,7 @@ void arreglos_matrices(int &opc);
 void varios_(int &opc);
 
 void opcion_invalida();
+void volver(int &opc, int opc_2);
 
 int opc=0;
 
@@ -151,15 +152,15 @@ void areas_ (int &opc){
     {
         if (opc==1) //area del triangulo
         {
-            float base, altura;
+            float base=0, altura=0;
                 cout<<"ingrese el valor de la base: ";
                 cin>>base;
                 cout<<"ingrese el valor de la altura: ";
                 cin>>altura;
 
-            if (base<=0 && altura<=0)
+            if (base<=0 || altura<=0)
             {
-               cout<<"Los valores no corresponden"<<endl;
+               cout<<"Los valores son invalidos"<<endl;
                 system("pause");
                 areas_(opc); 
             }
@@ -177,13 +178,13 @@ void areas_ (int &opc){
 
         else if (opc==2) //area del circulo
         {
-            float pi=3.141516, radio;
+            float radio;
                 cout<<"ingrese el valor del radio : "<<endl;
                 cin>>radio;
 
             if (radio<=0)
             {
-               cout<<"El valor no corresponde"<<endl;              
+               cout<<"valor invalido"<<endl;              
                 system("pause");                
                 areas_(opc); 
             }
@@ -191,7 +192,7 @@ void areas_ (int &opc){
             else 
             {
                 
-                cout<<"el valor del area del circulo es: "<<(pi*(pow(radio,2)))<<endl;
+                cout<<"el valor del area del circulo es: "<<(M_PI*(pow(radio,2)))<<endl;
                 system("pause");
         
                     opc=1;
@@ -207,9 +208,9 @@ void areas_ (int &opc){
                 cout<<"ingrese el valor de la altura: ";
                 cin>>altura;
 
-            if (base<=0 && altura<=0)
+            if (base<=0 || altura<=0)
             {
-               cout<<"Los valores no corresponden"<<endl;
+               cout<<"Los valores son invalidos"<<endl;
                 system("pause");
                 areas_(opc); 
             }
@@ -227,15 +228,13 @@ void areas_ (int &opc){
 
         else if (opc==4) //area del cuadrado
         {
-            float base, altura;
+            float lado;
                 cout<<"ingrese el valor de la base: ";
-                cin>>base;
-                cout<<"ingrese el valor de la altura: ";
-                cin>>altura;
+                cin>>lado;
 
-            if (base<=0 && altura<=0)
+            if (lado<=0)
             {
-               cout<<"los valores no corresponden"<<endl;
+               cout<<"valor invalido"<<endl;
                 system("pause");
                 areas_(opc); 
             }
@@ -243,7 +242,7 @@ void areas_ (int &opc){
             else 
             {
                 
-                cout<<"el valor del area del duadrado es: "<<(base*altura)<<endl;
+                cout<<"el valor del area del cuadrado es: "<<(lado*lado)<<endl;
                 system("pause");
         
                     opc=1;
@@ -254,9 +253,7 @@ void areas_ (int &opc){
         else if (opc==5) //volver al menú principal
         {
             system("cls");
-            opc=0;
-            main;
-            
+            volver (opc, 0);            
         }
 
         else 
@@ -276,12 +273,16 @@ void areas_ (int &opc){
 
 void volumenes_(int &opc){
     system("cls");
-if(opc >= 1 && opc <= 4){
+
+    if(opc >= 1 && opc <= 4){
+
         if(opc==1){
+
             float radio = 0;
-            cout<<"Ingrese el valor del radio de la esfera en cm:  ";
+            cout<<"Ingrese el valor del radio de la esfera:  ";
             cin>>radio;
             //volumen esfera
+            
             if(radio<=0){
                 cout<<"Valor invalido"<<endl;
                 
@@ -289,28 +290,32 @@ if(opc >= 1 && opc <= 4){
                 
                 volumenes_(opc);
             }
-                   else{
+            else{
             
-                    radio = (4/3) * M_PI * (pow(radio, 3));
-                   cout<<"El volumen de la esfera es: "<<radio<<"cm³"<<endl;
+            radio = (4/3) * M_PI * (pow(radio, 3));
+            cout<<"El volumen de la esfera es: "<<radio<<endl;
         
-                    system("pause");
+            system("pause");
         
-                    opc=2;
-                    main();
-                    }
+            opc=2;
+            main();
+            }
         }
-        else if(opc ==2){
-            //volumen paralelepipedo
+
+        else if(opc ==2)//volumen paralelepipedo
+        { 
+           
             //ancho * longitud * altura
-         float ancho = 0, longitud = 0, altura = 0;
-            cout<<"Ingrese las medidas del paralelepipedo (cm) "
+
+            float ancho = 0, longitud = 0, altura = 0;
+            cout<<"Ingrese las medidas del paralelepipedo: "
             "\nAncho: ";
             cin>>ancho;
             cout<<"Altura: ";
             cin>>altura;
             cout<<"Longitud: ";
             cin>>longitud;
+
             if(ancho<=0 || altura <= 0 || longitud <=0){
                 cout<<"No puede ingresar valores negativos"<<endl;
                 system("pause");
@@ -318,41 +323,48 @@ if(opc >= 1 && opc <= 4){
                 volumenes_(opc);
             }
             
-            cout<<"El volumen del paralelepipedo es: "<<ancho * longitud * altura<<"cm³"<<endl;
-        system("pause");
-        opc=2;
-        main();
+            cout<<"El volumen del paralelepipedo es: "<<ancho * longitud * altura<<endl;
+            system("pause");
+            opc=2;
+            main();
         }
-           else if(opc == 3){
-        //cubo
-        // lado³
-        float lado = 0;
-        cout<<"Ingrese la medida del cubo especificada (cm): "
-        "\nLado: ";
+
+        else if(opc == 3)//cubo
+        {
         
-        cin>>lado;
-        if(lado<=0){
+            // lado³
+            float lado = 0;
+            cout<<"Ingrese la medida del cubo especificada: "
+            "\nLado: ";
+        
+            cin>>lado;
+            if(lado<=0)
+            {
                 opc = 3;
                 cout<<"Valor invalido"<<endl;
                 system("pause");
                 volumenes_(opc);
-        }
-            else{
-                   cout<<"El volumen del cubo con lado "<<lado<<" es: "<<pow(lado, 3)<<"cm³"<<endl;
+            }
+            else
+            {
+                cout<<"El volumen del cubo con lado "<<lado<<" es: "<<pow(lado, 3)<<endl;
                 system("pause");
                 opc = 2;
                 main();
                 
             }
-            }
-          else if(opc == 4){
-        opc=0;
-        main();
-    }
-    else {
+        }
+
+        else if(opc == 4)
+        {
+            volver(opc,0);
+
+        }
+
+    else 
+    {
       opc = 2;
-      opcion_invalida();
-        
+      opcion_invalida();   
     }
  
 
@@ -375,4 +387,10 @@ void opcion_invalida(){
     cout<<"Opcion invalida"<<endl;
     system("pause");
     main();
+}
+
+void volver(int &opc, int opc_2){
+    opc=opc_2;
+    main();
+
 }

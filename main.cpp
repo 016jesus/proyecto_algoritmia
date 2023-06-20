@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+#include <cctype>
 using namespace std;
 
 void areas_(int &opc);
@@ -14,6 +14,8 @@ void varios_(int &opc);
 
 void opcion_invalida(int &opc, int opc_2);
 void volver(int &opc, int opc_2);
+bool tiene_caracteres(int input);
+void convertir_monedas(float cop, float tasa);
 
 int opc=0;
 
@@ -62,9 +64,9 @@ int main(){
         
         cout<<"Sub-menu volumenes"
         "\n1. Esfera"
-        "\n2. Paralelepípedo"
+        "\n2. Paralelepipedo"
         "\n3. Cubo"
-        "\n4. Regresar al menú principal"
+        "\n4. Regresar al menu principal"
         "\nIngrese una opcion: ";
         cin>>opc;
         volumenes_(opc);
@@ -77,7 +79,7 @@ int main(){
         "\n1. De Celsius a kelvin"
         "\n2. De Kelvin a Fahrenheit"
         "\n3. De Fahrenheit a Celsius"
-        "\n4. Regresar al menú principal"
+        "\n4. Regresar al menu principal"
         "\nIngrese una opcion: ";
         cin>>opc;
         temperaturas_(opc);
@@ -87,16 +89,16 @@ int main(){
         system("cls");
 
         cout<<"Ingrese la opcion a calcular"
-        "\n1. De pesos a dólares"
-        "\n2. De pesos a euros"
-        "\n3. De dólares a pesos"
-        "\n4. De euros a pesos"
-        "\n5. De euros a dólares"
-        "\n6. De dólares a euros"
-        "\n7. Regresar al menú principal"
+        "\n1. De Pesos a Dolares"
+        "\n2. De Pesos a Euros"
+        "\n3. De Dolares a Pesos"
+        "\n4. De Euros a Pesos"
+        "\n5. De Euros a Dolares"
+        "\n6. De Dolares a Euros"
+        "\n7. Regresar al menu principal"
         "\nIngrese una opcion: ";
         cin>>opc;
-        //monedas_(opc);
+        monedas_(opc);
         break;
                 
         case 5:
@@ -121,9 +123,9 @@ int main(){
         "\n1. Ordenamiento de un arreglo"
         "\n2. Buscar un valor en un arreglo"
         "\n3. Suma de matrices"
-        "\n4. Multiplicación de matrices"
+        "\n4. Multiplicacion de matrices"
         "\n5. Buscar un valor en una matriz"
-        "\n6. Regresar al menú principal"
+        "\n6. Regresar al menu principal"
         "\nIngrese una opcion: ";
         cin>>opc;
         //arreglos_matrices(opc);
@@ -134,12 +136,12 @@ int main(){
 
         cout<<"Sub-menu Varios"
         "\n1. Distancia entre dos puntos"
-        "\n2. Raíces de una función cuadrática"
+        "\n2. Raices de una funcion cuadratica"
         "\n3. Factorial"
         "\n4. Fibonacci"
         "\n5. Primo"
-        "\n6. Números amigos"
-        "\n7. Regresar al menú principal"
+        "\n6. Numeros amigos"
+        "\n7. Regresar al menu principal"
         "\n Ingrese una opcion: ";
         cin>>opc;
         //varios(opc);
@@ -280,7 +282,7 @@ void areas_ (int &opc)
             };
         }
 
-        else if (opc==5) //volver al menú principal
+        else if (opc==5) //volver al menu principal
         {
             system("cls");
             volver (opc, 0);            
@@ -461,7 +463,7 @@ system("cls");
                 volver(opc, 3);;
         }
         
-        else if(opc==4) //volver al menú pricipal
+        else if(opc==4) //volver al menu pricipal
         {
             volver(opc,0);
         }
@@ -482,6 +484,95 @@ system("cls");
 
 
 //Monedas
+
+
+
+
+
+
+
+
+void convertir_monedas(string m_1, string m_2){
+
+     float tasa, valor;
+
+        cout<<"Escriba la tasa de cambio de "<<m_2<<" a "<<m_1<<": ";
+        cin >> tasa;
+        cout<<"Ingrese el valor en "<<m_1<<": ";
+        cin>> valor;
+
+            if(tasa<=0 || valor <=0)
+            {
+                opcion_invalida(opc, 4);
+            }
+            
+            else 
+            {
+                cout<<"Valor en "<<m_2<<": "<<valor/tasa<<endl;
+                system("pause");
+                volver(opc, 4);
+            }
+}
+
+void monedas_(int &opc){
+
+    string monedas[3]={"Peso (COP)", "Dolar (USD)", "Euro (EUR)" };
+
+    if (opc>=1 && opc<=7) 
+    {
+
+
+        if (opc == 1) //pesos a dolares
+        {
+           convertir_monedas(monedas[0], monedas[1]);
+        }
+
+        else if (opc == 2) //pesos a euros
+        {
+           convertir_monedas(monedas[0], monedas[2]);
+
+        }
+
+        else if (opc == 3) //dolares a pesos
+        {
+           convertir_monedas(monedas[1], monedas[0]);
+        }
+
+        else if (opc == 4) // euros a pesos
+        {
+            convertir_monedas(monedas[2], monedas[0]);
+        }
+
+        else if (opc == 5) //euros a dolares   
+        {
+            convertir_monedas(monedas[2], monedas[1]);
+        }
+
+        else if (opc == 6) //dolares a euros 
+        {
+            convertir_monedas(monedas[1], monedas[2]);
+        }
+
+        else if (opc == 7) //volver al menu pricipal
+        {
+        volver(opc, 0);
+        }
+    }
+
+    else {
+        opcion_invalida(opc, 4);
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -533,3 +624,16 @@ void volver(int &opc, int opc_2){
     main();
 
 }
+// bool tiene_caracteres(int var){
+// int var;
+// std::cin >> var;
+
+// if( std::cin.fail() )
+// {
+//   std::cout << "ERROR"\n;
+//   std::cin.clear();
+// }
+// std::cin.ignore(std::numeric_limits<int>::max(),'\n');
+// }
+
+

@@ -42,10 +42,12 @@ int main(){
     cin>>opc;          
            
             salto:
-            
+
+        system("cls");
+
         switch(opc){     
         case 1:         
-        system("cls");
+        
                  
         cout<<"Sub-menu areas"
         "\n1. Triangulo"
@@ -60,7 +62,7 @@ int main(){
 
 
         case 2:
-        system("cls");
+        
         
         cout<<"Sub-menu volumenes"
         "\n1. Esfera"
@@ -73,7 +75,7 @@ int main(){
         break;
                 
         case 3:
-        system("cls");
+        
 
         cout<<"Sub-menu temperaturas"
         "\n1. De Celsius a kelvin"
@@ -86,7 +88,7 @@ int main(){
         break;
                 
         case 4:
-        system("cls");
+        
 
         cout<<"Ingrese la opcion a calcular"
         "\n1. De Pesos a Dolares"
@@ -102,7 +104,6 @@ int main(){
         break;
                 
         case 5:
-        system("cls");
 
         cout<<"Sub-menu Sistemas Numericos"
         "\n1. Convertir de decimal a binario"
@@ -117,7 +118,7 @@ int main(){
         break;
                 
         case 6:
-        system("cls");
+  
 
         cout<< "Ingrese la opcion a calcular"
         "\n1. Ordenamiento de un arreglo"
@@ -132,7 +133,7 @@ int main(){
         break;
                 
         case 7:
-        system("cls");
+        
 
         cout<<"Sub-menu Varios"
         "\n1. Distancia entre dos puntos"
@@ -148,7 +149,7 @@ int main(){
         break;
                 
         case 8:
-        system("cls");
+        
 
         cout<<"Programa finalizado";
         break;

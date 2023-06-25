@@ -17,6 +17,8 @@ void volver(int &opc, int opc_2);
 bool tiene_caracteres(int input);
 void convertir_monedas(float cop, float tasa);
 
+long long hexadecimal (string hexadecimal);
+
 int opc=0;
 
 int main(){
@@ -113,7 +115,7 @@ int main(){
         "\n6. Regresar al menu principal"
         "\nIngrese una opcion: ";
         cin>>opc;
-        //numericos_(opc);
+        numericos_(opc);
         break;
                 
         case 6:
@@ -561,12 +563,108 @@ void monedas_(int &opc){
 
     else {
         opcion_invalida(opc, 4);
-        //hola
     }
 }
 
 
 
+
+
+
+
+
+
+//Sistemas Numericos
+
+
+ 
+
+
+
+void numericos (int &opc){
+
+    if (opc>=1 && opc<=7)
+    {
+        if (opc==1) //decimal a binario
+        {
+            /* code */
+        }
+
+        else if (opc==2) //decimal a octal
+        {
+            /* code */
+        }
+
+        else if (opc==3) //decimal a hexadecimal
+        {
+            /* code */
+        }
+
+        else if (opc==4) //binario a decimal
+        {
+            /* code */
+        }
+
+        else if (opc==5) //octal a decimal
+        {
+            /* code */
+        }
+
+        else if (opc==6) //hexadecimal a decimal
+        {
+            string num;
+            long long decimal;
+
+            cout<<"Escriba el numero hexadecimal que desea convertir";
+            cin>>num;
+
+            decimal=hexadecimal(num);
+
+            cout<<"Su numero decimal es: "<<decimal;
+        }
+
+        else if (opc==7) // volver
+        {
+            system("cls");
+            volver (opc, 0);
+        }   
+            
+    }
+
+    else {
+        opcion_invalida(opc, 4);
+    }
+    
+
+}
+
+
+long long hexadecimal (string hexadecimal){
+     
+    short pos = 0, digitos = 0;
+    long long decimal = 0;
+    
+    system("cls");
+
+    digitos = hexadecimal.length() - 1;
+    
+    for(pos = 0; pos <= digitos; pos = pos + 1){
+        // Letras de la A a la F
+        if(hexadecimal[pos] >= 65 && hexadecimal[pos] <= 70){
+            decimal = decimal + ((hexadecimal[pos] - 55) * pow(16, digitos - pos));
+        }
+        // Letras de la a a la f
+        else if(hexadecimal[pos] >= 97 && hexadecimal[pos] <= 102){
+            decimal = decimal + ((hexadecimal[pos] - 87) * pow(16, digitos - pos));
+        }
+        // Numeros del 0 al 9   
+        else if (hexadecimal[pos] >= 48 && hexadecimal[pos] <= 57){
+            decimal = decimal + ((hexadecimal[pos] - 48) * pow(16, digitos - pos));
+        }
+    }
+
+    return decimal;
+}
 
 
 

@@ -184,7 +184,7 @@ int main(){
 
 
 
-void areas_ (int &opc)
+void areas_(int &opc)
 {
     system("cls");
 
@@ -583,7 +583,7 @@ void monedas_(int &opc){
 
 
 
-void numericos (int &opc){
+void numericos_(int &opc){
 
     if (opc>=1 && opc<=7)
     {
@@ -646,7 +646,7 @@ void numericos (int &opc){
 }
 
 
-long long hexadecimal (string hexadecimal){
+long long hexadecimal(string hexadecimal){
      
     short pos = 0, digitos = 0;
     long long decimal = 0;

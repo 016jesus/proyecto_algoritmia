@@ -113,7 +113,8 @@ int main(){
         "\n3. Convertir de decimal a hexadecimal"
         "\n4. Convertir de binario a decimal"
         "\n5. Convertir de octal a decimal"
-        "\n6. Regresar al menu principal"
+        "\n6. Convertir de hexadecimal a decimal"
+        "\n7. Regresar al menu principal"
         "\nIngrese una opcion: ";
         cin>>opc;
         numericos_(opc);
@@ -582,7 +583,7 @@ void monedas_(int &opc){
 
 
 
-void numericos (int &opc){
+void numericos_(int &opc){
 
     if (opc>=1 && opc<=7)
     {
@@ -616,12 +617,17 @@ void numericos (int &opc){
             string num;
             long long decimal;
 
-            cout<<"Escriba el numero hexadecimal que desea convertir";
+            system("cls");
+
+            cout<<"Escriba el numero hexadecimal que desea convertir: ";
             cin>>num;
 
             decimal=hexadecimal(num);
 
-            cout<<"Su numero decimal es: "<<decimal;
+            cout<<"Su numero decimal es: "<<decimal<<endl;
+
+            system("pause");
+            volver(opc, 5);
         }
 
         else if (opc==7) // volver
@@ -633,7 +639,7 @@ void numericos (int &opc){
     }
 
     else {
-        opcion_invalida(opc, 4);
+        opcion_invalida(opc, 5);
     }
     
 
@@ -645,7 +651,7 @@ long long hexadecimal (string hexadecimal){
     short pos = 0, digitos = 0;
     long long decimal = 0;
     
-    system("cls");
+    
 
     digitos = hexadecimal.length() - 1;
     

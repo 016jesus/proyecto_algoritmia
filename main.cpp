@@ -581,8 +581,7 @@ void monedas_(int &opc){
  
 
 
-
-void numericos (int &opc){
+void numericos_(int &opc){
 
     if (opc>=1 && opc<=7)
     {

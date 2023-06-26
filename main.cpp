@@ -18,6 +18,7 @@ bool tiene_caracteres(int input);
 void convertir_monedas(float cop, float tasa);
 
 long long hexadecimal_decimal(string hexadecimal);
+long long octal_decimal(long long octal);
 long long binario_decimal (string binario);
 
 int opc=0;
@@ -624,7 +625,20 @@ void numericos_(int &opc){
 
         else if (opc==5) //octal a decimal
         {
-            /* code */
+            long long num;
+            long long decimal;
+
+            system("cls");
+
+            cout<<"Escriba el numero octal que desea convertir: ";
+            cin>>num;
+
+            decimal=octal_decimal(num);
+
+            cout<<"Su numero decimal es: "<<decimal<<endl;
+
+            system("pause");
+            volver(opc, 5);
         }
 
         else if (opc==6) //hexadecimal a decimal
@@ -661,6 +675,54 @@ void numericos_(int &opc){
 }
 
 
+long long binario_decimal (string binario){
+
+    short pos = 0, digitos = 0;
+    long long decimal = 0;
+    
+    system("cls");
+
+    digitos = binario.length() - 1;
+    
+    for(pos = 0; pos <= digitos; pos = pos + 1){
+        if(binario[pos] == '1'){
+            decimal = decimal + pow(2, digitos - pos);
+        }
+    }
+
+    return decimal;
+
+}
+
+
+long long octal_decimal(long long octal){
+
+    short pos = 0, digitos = 0, digito = 0;
+    long long decimal = 0, temporal = 0;
+    
+    system("cls");
+
+    temporal = octal;
+
+    while (octal/pow(10, digitos) > 1){
+        digitos = digitos + 1;
+    }
+    
+    digitos = digitos - 1;
+        
+    for(pos = 0; pos <= digitos; pos = pos + 1){
+        digito = octal/pow (10, digitos - pos);
+        octal = octal-(digito * pow (10, digitos - pos));
+        decimal = decimal + (digito * pow(8, digitos - pos));
+    }
+
+    return decimal;
+
+}
+
+
+
+
 long long hexadecimal_decimal(string hexadecimal){
      
     short pos = 0, digitos = 0;
@@ -686,25 +748,6 @@ long long hexadecimal_decimal(string hexadecimal){
     return decimal;
 }
 
-
-long long binario_decimal (string binario){
-
-    short pos = 0, digitos = 0;
-    long long decimal = 0;
-    
-    system("cls");
-
-    digitos = binario.length() - 1;
-    
-    for(pos = 0; pos <= digitos; pos = pos + 1){
-        if(binario[pos] == '1'){
-            decimal = decimal + pow(2, digitos - pos);
-        }
-    }
-
-    return decimal;
-
-}
 
 
 

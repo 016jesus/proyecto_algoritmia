@@ -17,7 +17,8 @@ void volver(int &opc, int opc_2);
 bool tiene_caracteres(int input);
 void convertir_monedas(float cop, float tasa);
 
-long long hexadecimal (string hexadecimal);
+long long hexadecimal_decimal(string hexadecimal);
+long long binario_decimal (string binario);
 
 int opc=0;
 
@@ -605,7 +606,20 @@ void numericos_(int &opc){
 
         else if (opc==4) //binario a decimal
         {
-            /* code */
+            string num;
+            long long decimal;
+
+            system("cls");
+
+            cout<<"Escriba el numero binario que desea convertir: ";
+            cin>>num;
+
+            decimal=binario_decimal(num);
+
+            cout<<"Su numero decimal es: "<<decimal<<endl;
+
+            system("pause");
+            volver(opc, 5);
         }
 
         else if (opc==5) //octal a decimal
@@ -623,7 +637,7 @@ void numericos_(int &opc){
             cout<<"Escriba el numero hexadecimal que desea convertir: ";
             cin>>num;
 
-            decimal=hexadecimal(num);
+            decimal=hexadecimal_decimal(num);
 
             cout<<"Su numero decimal es: "<<decimal<<endl;
 
@@ -647,12 +661,10 @@ void numericos_(int &opc){
 }
 
 
-long long hexadecimal(string hexadecimal){
+long long hexadecimal_decimal(string hexadecimal){
      
     short pos = 0, digitos = 0;
     long long decimal = 0;
-    
-    
 
     digitos = hexadecimal.length() - 1;
     
@@ -674,6 +686,25 @@ long long hexadecimal(string hexadecimal){
     return decimal;
 }
 
+
+long long binario_decimal (string binario){
+
+    short pos = 0, digitos = 0;
+    long long decimal = 0;
+    
+    system("cls");
+
+    digitos = binario.length() - 1;
+    
+    for(pos = 0; pos <= digitos; pos = pos + 1){
+        if(binario[pos] == '1'){
+            decimal = decimal + pow(2, digitos - pos);
+        }
+    }
+
+    return decimal;
+
+}
 
 
 

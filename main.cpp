@@ -10,7 +10,7 @@ void monedas_(int &opc);
 void numericos_(int &opc);
 void arreglos_matrices(int &opc);
 void varios_(int &opc);
-
+void menu_(int &opc);
 
 void opcion_invalida(int &opc, int opc_2);
 void volver(int &opc, int opc_2);
@@ -22,7 +22,15 @@ long long hexadecimal (string hexadecimal);
 int opc=0;
 
 int main(){
-    system("cls");
+   menu_(opc);              
+     return 0;    
+}
+
+
+
+
+void menu_(int &opc){
+     system("cls");
 
     
     
@@ -162,14 +170,7 @@ int main(){
                 
                 
         }
-            
-            
-                    
-     return 0;    
 }
-
-
-
 
 
 

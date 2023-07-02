@@ -1,7 +1,14 @@
 #include <iostream>
 #include <cmath>
-#include <cctype>
+#include <string>
+
 using namespace std;
+
+//funcion de menu
+
+void menu_(int &opc);
+
+//funciones de sub-menus/calculos
 
 void areas_(int &opc);
 void volumenes_(int &opc);
@@ -10,16 +17,22 @@ void monedas_(int &opc);
 void numericos_(int &opc);
 void arreglos_matrices(int &opc);
 void varios_(int &opc);
-void menu_(int &opc);
 
+//funciones de manejo de codigo
+
+void validar_entrada(int &opc);
 void opcion_invalida(int &opc, int opc_2);
 void volver(int &opc, int opc_2);
-bool tiene_caracteres(int input);
+
+//funciones adicionales de operaciones
+
 void convertir_monedas(float cop, float tasa);
 
 long long hexadecimal_decimal(string hexadecimal);
 long long octal_decimal(long long octal);
 long long binario_decimal (string binario);
+
+//variable de control de ejecución
 
 int opc=0;
 
@@ -28,6 +41,14 @@ int main(){
      return 0;    
 }
 
+
+void validar_entrada(int &opc){
+    if (!(cin >> opc)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return;
+    }
+}
 
 
 
@@ -51,7 +72,13 @@ void menu_(int &opc){
     "\n7. Varios"
     "\n8. Salir"
     "\nIngrese una opcion: ";
-    cin>>opc;          
+    
+    if (!(cin >> opc)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        opcion_invalida(opc, 0);
+        return;
+    }          
            
             salto:
 
@@ -68,7 +95,7 @@ void menu_(int &opc){
         "\n4. Cuadrado"
         "\n5. Regresar al menu principal"
         "\nIngrese una opcion: "; 
-        cin>>opc;
+        validar_entrada(opc);
         areas_(opc);
         break;
 
@@ -82,7 +109,7 @@ void menu_(int &opc){
         "\n3. Cubo"
         "\n4. Regresar al menu principal"
         "\nIngrese una opcion: ";
-        cin>>opc;
+        validar_entrada(opc);
         volumenes_(opc);
         break;
                 
@@ -95,7 +122,7 @@ void menu_(int &opc){
         "\n3. De Fahrenheit a Celsius"
         "\n4. Regresar al menu principal"
         "\nIngrese una opcion: ";
-        cin>>opc;
+        validar_entrada(opc);
         temperaturas_(opc);
         break;
                 
@@ -111,7 +138,7 @@ void menu_(int &opc){
         "\n6. De Dolares a Euros"
         "\n7. Regresar al menu principal"
         "\nIngrese una opcion: ";
-        cin>>opc;
+        validar_entrada(opc);
         monedas_(opc);
         break;
                 
@@ -126,7 +153,7 @@ void menu_(int &opc){
         "\n6. Convertir de hexadecimal a decimal"
         "\n7. Regresar al menu principal"
         "\nIngrese una opcion: ";
-        cin>>opc;
+        validar_entrada(opc);
         numericos_(opc);
         break;
                 
@@ -141,7 +168,7 @@ void menu_(int &opc){
         "\n5. Buscar un valor en una matriz"
         "\n6. Regresar al menu principal"
         "\nIngrese una opcion: ";
-        cin>>opc;
+        validar_entrada(opc);
         //arreglos_matrices(opc);
         break;
                 
@@ -157,7 +184,7 @@ void menu_(int &opc){
         "\n6. Numeros amigos"
         "\n7. Regresar al menu principal"
         "\n Ingrese una opcion: ";
-        cin>>opc;
+        validar_entrada(opc);
         //varios(opc);
         break;
                 
@@ -592,7 +619,25 @@ void numericos_(int &opc){
     {
         if (opc==1) //decimal a binario
         {
-            /* code */
+            int dec=0;
+            short res=0;
+            string bin="";
+
+            cout<<"Escriba su numero decimal: ";
+            cin>>dec;
+
+            while (dec!=1)
+            {
+                res= dec%2;
+                bin= to_string(res) + bin;
+                dec= dec - (dec%2);
+                dec/= 2;
+            }
+            
+            bin="1"+bin;
+
+            cout<<"Su numero binario es: "<<bin;
+            
         }
 
         else if (opc==2) //decimal a octal

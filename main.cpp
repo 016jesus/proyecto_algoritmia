@@ -20,7 +20,7 @@ void varios_(int &opc);
 
 //funciones de manejo de codigo
 
-void validar_entrada(int &opc);
+void validar_entrada();
 void opcion_invalida(int &opc, int opc_2);
 void volver(int &opc, int opc_2);
 
@@ -30,7 +30,6 @@ void convertir_monedas(float cop, float tasa);
 
 long long hexadecimal_decimal(string hexadecimal);
 long long octal_decimal(long long octal);
-long long binario_decimal (string binario);
 
 //variable de control de ejecución
 
@@ -42,10 +41,10 @@ int main(){
 }
 
 
-void validar_entrada(int &opc){
-    if (!(cin >> opc)) {
+void validar_entrada(){
+    if (cin.fail()) {
         cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
         return;
     }
 }
@@ -53,8 +52,9 @@ void validar_entrada(int &opc){
 
 
 void menu_(int &opc){
+     
      system("cls");
-
+     system("color 3");
     
     
     if (opc != 0){
@@ -62,7 +62,8 @@ void menu_(int &opc){
     }
 
     //menu principal
-    cout<<"Menu principal"
+    cout<<"\t\t\tMenu principal"
+    "\n-----------------------------------------------------------------"
     "\n1. Areas"
     "\n2. Volumenes "
     "\n3. Temperaturas "
@@ -71,14 +72,10 @@ void menu_(int &opc){
     "\n6. Arreglos y matrices "
     "\n7. Varios"
     "\n8. Salir"
+    "\n-----------------------------------------------------------------"
     "\nIngrese una opcion: ";
-    
-    if (!(cin >> opc)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        opcion_invalida(opc, 0);
-        return;
-    }          
+    cin>>opc;
+    validar_entrada();
            
             salto:
 
@@ -88,14 +85,17 @@ void menu_(int &opc){
         case 1:         
         
                  
-        cout<<"Sub-menu areas"
+        cout<<"\t\t\tSub-menu areas"
+      "\n-----------------------------------------------------------------"
         "\n1. Triangulo"
         "\n2. Circulo"
         "\n3. Rectangulo"
         "\n4. Cuadrado"
         "\n5. Regresar al menu principal"
+       "\n-----------------------------------------------------------------"
         "\nIngrese una opcion: "; 
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         areas_(opc);
         break;
 
@@ -103,33 +103,40 @@ void menu_(int &opc){
         case 2:
         
         
-        cout<<"Sub-menu volumenes"
+        cout<<"\t\t\tSub-menu volumenes"
+       "\n-----------------------------------------------------------------"
         "\n1. Esfera"
         "\n2. Paralelepipedo"
         "\n3. Cubo"
         "\n4. Regresar al menu principal"
+       "\n-----------------------------------------------------------------"
         "\nIngrese una opcion: ";
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         volumenes_(opc);
         break;
                 
         case 3:
         
 
-        cout<<"Sub-menu temperaturas"
+        cout<<"\t\t\tSub-menu temperaturas"
+       "\n-----------------------------------------------------------------"
         "\n1. De Celsius a kelvin"
         "\n2. De Kelvin a Fahrenheit"
         "\n3. De Fahrenheit a Celsius"
         "\n4. Regresar al menu principal"
+       "\n-----------------------------------------------------------------"
         "\nIngrese una opcion: ";
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         temperaturas_(opc);
         break;
                 
         case 4:
         
 
-        cout<<"Ingrese la opcion a calcular"
+        cout<<"\t\t\tSub-menu monedas"
+       "\n-----------------------------------------------------------------"
         "\n1. De Pesos a Dolares"
         "\n2. De Pesos a Euros"
         "\n3. De Dolares a Pesos"
@@ -137,14 +144,17 @@ void menu_(int &opc){
         "\n5. De Euros a Dolares"
         "\n6. De Dolares a Euros"
         "\n7. Regresar al menu principal"
+       "\n-----------------------------------------------------------------"
         "\nIngrese una opcion: ";
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         monedas_(opc);
         break;
                 
         case 5:
 
-        cout<<"Sub-menu Sistemas Numericos"
+        cout<<"\t\t\tSub-menu Sistemas Numericos"
+       "\n-----------------------------------------------------------------"
         "\n1. Convertir de decimal a binario"
         "\n2. Convertir de decimal a octal"
         "\n3. Convertir de decimal a hexadecimal"
@@ -152,30 +162,36 @@ void menu_(int &opc){
         "\n5. Convertir de octal a decimal"
         "\n6. Convertir de hexadecimal a decimal"
         "\n7. Regresar al menu principal"
+       "\n-----------------------------------------------------------------"
         "\nIngrese una opcion: ";
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         numericos_(opc);
         break;
                 
         case 6:
   
 
-        cout<< "Ingrese la opcion a calcular"
+        cout<< "\t\t\tSub-menu arreglos y matrices"
+       "\n-----------------------------------------------------------------"
         "\n1. Ordenamiento de un arreglo"
         "\n2. Buscar un valor en un arreglo"
         "\n3. Suma de matrices"
         "\n4. Multiplicacion de matrices"
         "\n5. Buscar un valor en una matriz"
         "\n6. Regresar al menu principal"
+        "\n-----------------------------------------------------------------"
         "\nIngrese una opcion: ";
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         //arreglos_matrices(opc);
         break;
                 
         case 7:
         
 
-        cout<<"Sub-menu Varios"
+        cout<<"\t\t\tSub-menu Varios"
+       "\n-----------------------------------------------------------------"
         "\n1. Distancia entre dos puntos"
         "\n2. Raices de una funcion cuadratica"
         "\n3. Factorial"
@@ -183,20 +199,24 @@ void menu_(int &opc){
         "\n5. Primo"
         "\n6. Numeros amigos"
         "\n7. Regresar al menu principal"
+        "\n-----------------------------------------------------------------"
         "\n Ingrese una opcion: ";
-        validar_entrada(opc);
+        cin>>opc;
+        validar_entrada();
         //varios(opc);
         break;
                 
         case 8:
         
 
-        cout<<"Programa finalizado";
+        cout<<"\t\t\tPrograma finalizado"
+       "\n-----------------------------------------------------------------";
         break;
                 
         default: 
+        
          opcion_invalida(opc, 0);
-                
+        
                 
         }
 }
@@ -223,14 +243,17 @@ void areas_(int &opc)
         if (opc==1) //area del triangulo
         {
             float base=0, altura=0;
-                cout<<"ingrese el valor de la base: ";
+                cout<<"\t\tArea de un triangulo"
+                "\n-----------------------------------------------------------------\n";
+                cout<<"ingrese el valor de la base:\n";
                 cin>>base;
-                cout<<"ingrese el valor de la altura: ";
+                cout<<"ingrese el valor de la altura:\n";
                 cin>>altura;
-
+                cout<< "\n-----------------------------------------------------------------";
+                 validar_entrada();
             if (base<=0 || altura<=0)
             {
-               cout<<"Los valores son invalidos"<<endl;
+               cout<<"\nLos valores son invalidos"<<endl;
                 system("pause");
                 areas_(opc); 
             }
@@ -238,7 +261,7 @@ void areas_(int &opc)
             else 
             {
                 
-                cout<<"el valor del area del triangulo es: "<<(base*altura)/2<<endl;
+                cout<<"\nEl valor del area del triangulo es: "<<(base*altura)/2<<endl;
                 system("pause");
         
                     volver(opc,1);
@@ -248,12 +271,15 @@ void areas_(int &opc)
         else if (opc==2) //area del circulo
         {
             float radio;
-                cout<<"ingrese el valor del radio : "<<endl;
+                cout<<"\t\tArea de un circulo"
+                "\n-----------------------------------------------------------------\n";
+                cout<<"Ingrese el valor del radio : "<<endl;
                 cin>>radio;
-
+                validar_entrada();
+                cout<<"\n-----------------------------------------------------------------\n";
             if (radio<=0)
             {
-               cout<<"valor invalido"<<endl;              
+               cout<<"\nValor invalido"<<endl;              
                 system("pause");                
                 areas_(opc); 
             }
@@ -261,7 +287,7 @@ void areas_(int &opc)
             else 
             {
                 
-                cout<<"el valor del area del circulo es: "<<(M_PI*(pow(radio,2)))<<endl;
+                cout<<"\nEl valor del area del circulo es: "<<(M_PI*(pow(radio,2)))<<endl;
                 system("pause");
         
                     volver(opc,1);
@@ -271,11 +297,14 @@ void areas_(int &opc)
         else if (opc==3) //area del rectangulo
         {
             float base, altura;
-                cout<<"ingrese el valor de la base: ";
+                cout<<"\t\tArea de un rectangulo"
+                "\n-----------------------------------------------------------------\n";
+                cout<<"Ingrese el valor de la base: \n";
                 cin>>base;
-                cout<<"ingrese el valor de la altura: ";
+                cout<<"Ingrese el valor de la altura: \n";
                 cin>>altura;
-
+                validar_entrada();
+                cout<<"\n-----------------------------------------------------------------\n";
             if (base<=0 || altura<=0)
             {
                cout<<"Los valores son invalidos"<<endl;
@@ -286,7 +315,7 @@ void areas_(int &opc)
             else 
             {
                 
-                cout<<"el valor del area del rectangulo es: "<<(base*altura)<<endl;
+                cout<<"El valor del area del rectangulo es: "<<(base*altura)<<endl;
                 system("pause");
         
                     volver(opc,1);
@@ -296,12 +325,15 @@ void areas_(int &opc)
         else if (opc==4) //area del cuadrado
         {
             float lado;
-                cout<<"ingrese el valor de la base: ";
+            cout<<"\t\t\tArea de un cuadrado"
+            "\n-----------------------------------------------------------------\n";
+                cout<<"Ingrese el valor de la base: ";
                 cin>>lado;
-
+                validar_entrada();
+                cout<<"\n-----------------------------------------------------------------\n";
             if (lado<=0)
             {
-               cout<<"valor invalido"<<endl;
+               cout<<"Valor invalido"<<endl;
                 system("pause");
                 areas_(opc); 
             }
@@ -309,7 +341,7 @@ void areas_(int &opc)
             else 
             {
                 
-                cout<<"el valor del area del cuadrado es: "<<(lado*lado)<<endl;
+                cout<<"El valor del area del cuadrado es: "<<(lado*lado)<<endl;
                 system("pause");
         
                     volver(opc,1);
@@ -352,13 +384,15 @@ void volumenes_(int &opc)
 
     if(opc >= 1 && opc <= 4){
 
-        if(opc==1){
+        if(opc==1){ //volumen esfera
 
             float radio = 0;
-                cout<<"Ingrese el valor del radio de la esfera:  ";
+            cout<<"\t\t\tVolumen de una esfera"
+            "\n-----------------------------------------------------------------\n"
+             "Ingrese el valor del radio de la esfera:\n";
                 cin>>radio;
-                //volumen esfera
-            
+                validar_entrada();
+            cout<<"\n-----------------------------------------------------------------\n";
             if(radio<=0){
                 cout<<"Valor invalido"<<endl;
                 
@@ -383,7 +417,8 @@ void volumenes_(int &opc)
             //ancho * longitud * altura
 
             float ancho = 0, longitud = 0, altura = 0;
-
+            cout<<"\t\t\tVolumen Paralelepipedo"
+            "\n-----------------------------------------------------------------\n";
                 cout<<"Ingrese las medidas del paralelepipedo: "
                 "\nAncho: ";
                 cin>>ancho;
@@ -391,9 +426,10 @@ void volumenes_(int &opc)
                 cin>>altura;
                 cout<<"Longitud: ";
                 cin>>longitud;
-
+                validar_entrada();
+                cout<<"\n-----------------------------------------------------------------\n";
             if(ancho<=0 || altura <= 0 || longitud <=0){
-                cout<<"No puede ingresar valores negativos"<<endl;
+                cout<<"Valor invalido"<<endl;
                 system("pause");
                 opc = 2;
                 volumenes_(opc);
@@ -511,19 +547,7 @@ system("cls");
 }
 
 
-
-
-
-
-
-
 //Monedas
-
-
-
-
-
-
 
 
 void convertir_monedas(string m_1, string m_2){
@@ -600,23 +624,13 @@ void monedas_(int &opc){
 
 
 
-
-
-
-
-
-
 //Sistemas Numericos
-
-
- 
-
-
 
 void numericos_(int &opc){
 
     if (opc>=1 && opc<=7)
     {
+        system("cls");
         if (opc==1) //decimal a binario
         {
             int dec=0;
@@ -636,53 +650,107 @@ void numericos_(int &opc){
             
             bin="1"+bin;
 
-            cout<<"Su numero binario es: "<<bin;
+            cout<<"Su numero en binario es: "<<bin<<endl;
+            system("pause");
+            volver(opc, 5);
             
         }
 
         else if (opc==2) //decimal a octal
         {
-            /* code */
+            long long dec = 0;
+            string octal ="";
+            cout<<"Ingrese su numero decimal: ";
+            cin>>dec;
+            
+            do{
+                octal = to_string(dec%8) + octal;
+                dec = dec - (dec%8);
+                dec/=8;
+                
+            } while( dec >= 1);
+            cout<<"Su numero en octal es :"<<octal;
+            volver(opc, 5);
         }
 
         else if (opc==3) //decimal a hexadecimal
         {
-            /* code */
+            string hex = "";
+            long long dec = 0;
+            char digito;
+            short r;
+            
+            cout<<"Ingrese su numero decimal a convertir: ";
+            cin>>dec;
+            while(dec >= 1){
+                r = dec %16;
+                if( r < 10){
+                    hex = to_string(r) + hex;
+                }
+                else{
+                    digito = 'A' + (r-10);
+                    hex = digito + hex;
+                }
+                
+                
+                dec /= 16;
+            }
+            cout<<"Su numero en hexadecimal es: "<<hex;
+            volver(opc, 5);
         }
 
         else if (opc==4) //binario a decimal
         {
-            string num;
+            string bin;
             long long decimal;
 
-            system("cls");
-
             cout<<"Escriba el numero binario que desea convertir: ";
-            cin>>num;
+            cin>>bin;
 
-            decimal=binario_decimal(num);
+              short  digitos = bin.length() - 1;
+    
+    for(short i = 0; i <= digitos; i++){
+        if(bin[i] == '1'){
+            decimal = decimal + pow(2, digitos - i);
+        }
+    }
 
             cout<<"Su numero decimal es: "<<decimal<<endl;
 
-            system("pause");
             volver(opc, 5);
         }
 
         else if (opc==5) //octal a decimal
         {
-            long long num;
-            long long decimal;
+            long long octal;
+            
 
-            system("cls");
 
             cout<<"Escriba el numero octal que desea convertir: ";
-            cin>>num;
+            cin>>octal;
 
-            decimal=octal_decimal(num);
+              short i = 0, digitos = 0, digito = 0;
+              long long decimal = 0, temporal = 0;
+    
+    system("cls");
+
+    
+
+    while (octal/pow(10, digitos) > 1){
+        digitos = digitos + 1;
+    }
+    
+    digitos = digitos - 1;
+        
+    for(i = 0; i <= digitos; i++){
+        digito = octal/pow (10, digitos - i);
+        octal = octal-(digito * pow (10, digitos - i));
+        decimal = decimal + (digito * pow(8, digitos - i));
+    }
 
             cout<<"Su numero decimal es: "<<decimal<<endl;
 
-            system("pause");
+           
             volver(opc, 5);
         }
 
@@ -700,14 +768,14 @@ void numericos_(int &opc){
 
             cout<<"Su numero decimal es: "<<decimal<<endl;
 
-            system("pause");
+            
             volver(opc, 5);
         }
 
         else if (opc==7) // volver
         {
-            system("cls");
-            volver (opc, 0);
+           
+            volver(opc, 0);
         }   
             
     }
@@ -720,50 +788,8 @@ void numericos_(int &opc){
 }
 
 
-long long binario_decimal (string binario){
-
-    short pos = 0, digitos = 0;
-    long long decimal = 0;
-    
-    system("cls");
-
-    digitos = binario.length() - 1;
-    
-    for(pos = 0; pos <= digitos; pos = pos + 1){
-        if(binario[pos] == '1'){
-            decimal = decimal + pow(2, digitos - pos);
-        }
-    }
-
-    return decimal;
-
-}
 
 
-long long octal_decimal(long long octal){
-
-    short pos = 0, digitos = 0, digito = 0;
-    long long decimal = 0, temporal = 0;
-    
-    system("cls");
-
-    temporal = octal;
-
-    while (octal/pow(10, digitos) > 1){
-        digitos = digitos + 1;
-    }
-    
-    digitos = digitos - 1;
-        
-    for(pos = 0; pos <= digitos; pos = pos + 1){
-        digito = octal/pow (10, digitos - pos);
-        octal = octal-(digito * pow (10, digitos - pos));
-        decimal = decimal + (digito * pow(8, digitos - pos));
-    }
-
-    return decimal;
-
-}
 
 
 
@@ -775,7 +801,7 @@ long long hexadecimal_decimal(string hexadecimal){
 
     digitos = hexadecimal.length() - 1;
     
-    for(pos = 0; pos <= digitos; pos = pos + 1){
+    for(pos = 0; pos <= digitos; pos++){
         // Letras de la A a la F
         if(hexadecimal[pos] >= 65 && hexadecimal[pos] <= 70){
             decimal = decimal + ((hexadecimal[pos] - 55) * pow(16, digitos - pos));
@@ -846,20 +872,11 @@ void opcion_invalida(int &opc, int opc_2){
 }
 
 void volver(int &opc, int opc_2){
+    cout<<endl;
+    system("pause");
     opc=opc_2;
     main();
 
 }
-// bool tiene_caracteres(int var){
-// int var;
-// std::cin >> var;
-
-// if( std::cin.fail() )
-// {
-//   std::cout << "ERROR"\n;
-//   std::cin.clear();
-// }
-// std::cin.ignore(std::numeric_limits<int>::max(),'\n');
-// }
 
 

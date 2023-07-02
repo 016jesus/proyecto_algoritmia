@@ -28,9 +28,6 @@ void volver(int &opc, int opc_2);
 
 void convertir_monedas(float cop, float tasa);
 
-long long hexadecimal_decimal(string hexadecimal);
-long long octal_decimal(long long octal);
-
 //variable de control de ejecución
 
 int opc=0;
@@ -135,7 +132,7 @@ void menu_(int &opc){
         case 4:
         
 
-        cout<<"\t\t\tSub-menu monedas"
+        cout<<"\t\t\tSub-menu divisas"
        "\n-----------------------------------------------------------------"
         "\n1. De Pesos a Dolares"
         "\n2. De Pesos a Euros"
@@ -153,7 +150,7 @@ void menu_(int &opc){
                 
         case 5:
 
-        cout<<"\t\t\tSub-menu Sistemas Numericos"
+        cout<<"\t\tSub-menu Sistemas Numericos"
        "\n-----------------------------------------------------------------"
         "\n1. Convertir de decimal a binario"
         "\n2. Convertir de decimal a octal"
@@ -172,7 +169,7 @@ void menu_(int &opc){
         case 6:
   
 
-        cout<< "\t\t\tSub-menu arreglos y matrices"
+        cout<< "\t\tSub-menu arreglos y matrices"
        "\n-----------------------------------------------------------------"
         "\n1. Ordenamiento de un arreglo"
         "\n2. Buscar un valor en un arreglo"
@@ -325,7 +322,7 @@ void areas_(int &opc)
         else if (opc==4) //area del cuadrado
         {
             float lado;
-            cout<<"\t\t\tArea de un cuadrado"
+            cout<<"\t\tArea de un cuadrado"
             "\n-----------------------------------------------------------------\n";
                 cout<<"Ingrese el valor de la base: ";
                 cin>>lado;
@@ -387,7 +384,7 @@ void volumenes_(int &opc)
         if(opc==1){ //volumen esfera
 
             float radio = 0;
-            cout<<"\t\t\tVolumen de una esfera"
+            cout<<"\t\tVolumen de una esfera"
             "\n-----------------------------------------------------------------\n"
              "Ingrese el valor del radio de la esfera:\n";
                 cin>>radio;
@@ -417,7 +414,7 @@ void volumenes_(int &opc)
             //ancho * longitud * altura
 
             float ancho = 0, longitud = 0, altura = 0;
-            cout<<"\t\t\tVolumen Paralelepipedo"
+            cout<<"\t\tVolumen Paralelepipedo"
             "\n-----------------------------------------------------------------\n";
                 cout<<"Ingrese las medidas del paralelepipedo: "
                 "\nAncho: ";
@@ -446,7 +443,9 @@ void volumenes_(int &opc)
         
             // lado³
             float lado = 0;
-            cout<<"Ingrese la medida del cubo especificada: "
+            cout<<"\t\tVolumen de un cubo"
+            "\n-----------------------------------------------------------------\n"
+                  "Ingrese la medida del cubo especificada: "
             "\nLado: ";
             cin>>lado;
 
@@ -554,19 +553,23 @@ void convertir_monedas(string m_1, string m_2){
 
      float tasa, valor;
 
-        cout<<"Escriba la tasa de cambio de "<<m_2<<" a "<<m_1<<": ";
+        cout<<"\t\tConvertir divisas"
+          "\n-----------------------------------------------------------------\n"
+        "Escriba la tasa de cambio de "<<m_2<<" a "<<m_1<<":\n";
         cin >> tasa;
-        cout<<"Ingrese el valor en "<<m_1<<": ";
+        cout<<"Ingrese el valor en "<<m_1<<":\n";
         cin>> valor;
+        validar_entrada();
 
             if(tasa<=0 || valor <=0)
             {
                 opcion_invalida(opc, 4);
             }
-
             else 
             {
-                cout<<"Valor en "<<m_2<<": "<<valor/tasa<<endl;
+                system("cls");
+                cout<<
+                "Valor en "<<m_2<<": "<<valor/tasa<<endl;
                 system("pause");
                 volver(opc, 4);
             }
@@ -633,13 +636,15 @@ void numericos_(int &opc){
         system("cls");
         if (opc==1) //decimal a binario
         {
-            int dec=0;
+            long long dec=0;
             short res=0;
             string bin="";
 
-            cout<<"Escriba su numero decimal: ";
+            cout<<"\t\tConversor decimal a binario"
+              "\n-----------------------------------------------------------------\n"
+            "Escriba su numero decimal: ";
             cin>>dec;
-
+            validar_entrada();
             while (dec!=1)
             {
                 res= dec%2;
@@ -650,7 +655,8 @@ void numericos_(int &opc){
             
             bin="1"+bin;
 
-            cout<<"Su numero en binario es: "<<bin<<endl;
+            cout<<"\n-----------------------------------------------------------------\n"
+            "Su numero en binario es: "<<bin<<endl;
             system("pause");
             volver(opc, 5);
             
@@ -660,16 +666,22 @@ void numericos_(int &opc){
         {
             long long dec = 0;
             string octal ="";
-            cout<<"Ingrese su numero decimal: ";
-            cin>>dec;
             
+            cout<<"\t\tConversor Decimal a Octal"
+              "\n-----------------------------------------------------------------\n"
+            "Ingrese su numero decimal: ";
+            cin>>dec;
+            validar_entrada();
+
             do{
+                
                 octal = to_string(dec%8) + octal;
                 dec = dec - (dec%8);
                 dec/=8;
                 
             } while( dec >= 1);
-            cout<<"Su numero en octal es :"<<octal;
+            cout<<"\n-----------------------------------------------------------------\n"
+            "Su numero en octal es:\n"<<octal;
             volver(opc, 5);
         }
 
@@ -680,8 +692,11 @@ void numericos_(int &opc){
             char digito;
             short r;
             
-            cout<<"Ingrese su numero decimal a convertir: ";
+            cout<<"\t\tConversor Decimal a Hexadecimal"
+              "\n-----------------------------------------------------------------\n"
+            "Ingrese su numero decimal a convertir:\n";
             cin>>dec;
+            validar_entrada();
             while(dec >= 1){
                 r = dec %16;
                 if( r < 10){
@@ -695,7 +710,8 @@ void numericos_(int &opc){
                 
                 dec /= 16;
             }
-            cout<<"Su numero en hexadecimal es: "<<hex;
+            cout<<"\n-----------------------------------------------------------------\n"
+            "Su numero en hexadecimal es:\n"<<hex;
             volver(opc, 5);
         }
 
@@ -704,9 +720,11 @@ void numericos_(int &opc){
             string bin;
             long long decimal;
 
-            cout<<"Escriba el numero binario que desea convertir: ";
+            cout<<"\t\tConversor Binario a Decimal"
+              "\n-----------------------------------------------------------------\n"
+            "Escriba el numero binario que desea convertir:\n";
             cin>>bin;
-
+             validar_entrada();
               short  digitos = bin.length() - 1;
     
     for(short i = 0; i <= digitos; i++){
@@ -715,7 +733,8 @@ void numericos_(int &opc){
         }
     }
 
-            cout<<"Su numero decimal es: "<<decimal<<endl;
+            cout<<"\n-----------------------------------------------------------------\n"
+            "Su numero decimal es:\n"<<decimal;
 
             volver(opc, 5);
         }
@@ -723,16 +742,15 @@ void numericos_(int &opc){
         else if (opc==5) //octal a decimal
         {
             long long octal;
-            
 
-
-            cout<<"Escriba el numero octal que desea convertir: ";
+            cout<<"\t\tConversor Octal a Decimal"
+              "\n-----------------------------------------------------------------\n"
+            "Escriba el numero octal que desea convertir:\n";
             cin>>octal;
-
-              short i = 0, digitos = 0, digito = 0;
-              long long decimal = 0, temporal = 0;
-    
-    system("cls");
+            validar_entrada();
+            
+             short i = 0, digitos = 0, digito = 0;
+             long long decimal = 0;
 
     
 
@@ -748,7 +766,8 @@ void numericos_(int &opc){
         decimal = decimal + (digito * pow(8, digitos - i));
     }
 
-            cout<<"Su numero decimal es: "<<decimal<<endl;
+            cout<<"\n-----------------------------------------------------------------\n"
+            "Su numero decimal es:\n"<<decimal<<endl;
 
            
             volver(opc, 5);
@@ -756,15 +775,33 @@ void numericos_(int &opc){
 
         else if (opc==6) //hexadecimal a decimal
         {
-            string num;
+            string hex;
             long long decimal;
 
             system("cls");
 
             cout<<"Escriba el numero hexadecimal que desea convertir: ";
-            cin>>num;
+            cin>>hex;
 
-            decimal=hexadecimal_decimal(num);
+              short i = 0, digitos = 0;
+   
+
+    digitos = hex.length() - 1;
+    
+    for(i = 0; i <= digitos; i++){
+        // Letras de la A a la F
+        if(hex[i] >= 65 && hex[i] <= 70){
+            decimal = decimal + ((hex[i] - 55) * pow(16, digitos - i));
+        }
+        // Letras de la a a la f
+        else if(hex[i] >= 97 && hex[i] <= 102){
+            decimal = decimal + ((hex[i] - 87) * pow(16, digitos - i));
+        }
+        // Numeros del 0 al 9   
+        else if (hex[i] >= 48 && hex[i] <= 57){
+            decimal = decimal + ((hex[i] - 48) * pow(16, digitos - i));
+        }
+    }
 
             cout<<"Su numero decimal es: "<<decimal<<endl;
 
@@ -786,53 +823,6 @@ void numericos_(int &opc){
     
 
 }
-
-
-
-
-
-
-
-
-long long hexadecimal_decimal(string hexadecimal){
-     
-    short pos = 0, digitos = 0;
-    long long decimal = 0;
-
-    digitos = hexadecimal.length() - 1;
-    
-    for(pos = 0; pos <= digitos; pos++){
-        // Letras de la A a la F
-        if(hexadecimal[pos] >= 65 && hexadecimal[pos] <= 70){
-            decimal = decimal + ((hexadecimal[pos] - 55) * pow(16, digitos - pos));
-        }
-        // Letras de la a a la f
-        else if(hexadecimal[pos] >= 97 && hexadecimal[pos] <= 102){
-            decimal = decimal + ((hexadecimal[pos] - 87) * pow(16, digitos - pos));
-        }
-        // Numeros del 0 al 9   
-        else if (hexadecimal[pos] >= 48 && hexadecimal[pos] <= 57){
-            decimal = decimal + ((hexadecimal[pos] - 48) * pow(16, digitos - pos));
-        }
-    }
-
-    return decimal;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

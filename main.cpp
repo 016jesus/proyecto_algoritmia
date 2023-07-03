@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -877,259 +878,317 @@ void numericos_(int &opc){
 
 
 // funciones adicionales ------------------------------------------------------
-// void llenar_arreglo(int (&arr)[], int n){
+void llenar_arreglo(int (&arr)[], int n){
 
-//     int cont = 0;
+    int cont = 0;
 
-//     while (cont < n) 
-//     {
-//         int num;
-//         bool repetido = false;
+    while (cont < n) 
+    {
+        int num;
+        bool repetido = false;
 
-//         cout << "Ingrese un valor entero: ";
-//         cin >> num;
-//         validar_entrada();
+        cout << "Ingrese un valor entero: ";
+        cin >> num;
+        validar_entrada();
          
-//         for (int i = 0; i < cont; i++) 
-//         {
-//             if (arr[i] == num) 
-//             {
-//                 repetido = true;
-//                 break;
-//             }
-//         }
+        for (int i = 0; i < cont; i++) 
+        {
+            if (arr[i] == num) 
+            {
+                repetido = true;
+                break;
+            }
+        }
 
-//             if (repetido) 
-//             {
-//                 cout << "El valor ya existe. Intente nuevamente\n";
-//             } 
-//             else 
-//             {
-//                 arr[cont] = num;
-//                 cont++;
-//             }
-//     }
+            if (repetido) 
+            {
+                cout << "El valor ya existe. Intente nuevamente\n";
+            } 
+            else 
+            {
+                arr[cont] = num;
+                cont++;
+            }
+    }
 
-// }
+}
 
-// void ordenar_burbuja(int (&arr)[], int n) {
-//     for (int i = 0; i < n - 1; i++) {
-//         for (int j = 0; j < n - i - 1; j++) {
-//             if (arr[j] < arr[j + 1]) {
-//                 int k = arr[j];
-//                 arr[j] = arr[j + 1];
-//                 arr[j + 1] = k;
-//             }
-//         }
-//     }
-// }
+void ordenar_burbuja(int (&arr)[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] < arr[j + 1]) {
+                int k = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = k;
+            }
+        }
+    }
+}
 
-// void llenar_matriz(int (&matriz)[3][3]){
+void llenar_matriz(int (&matriz)[3][3]){
 
-//     int n=0;
+    int n=0;
 
-//     for (int i = 0; i < 3; i++)
-//     {
-//         for (int j = 0; j < 3; j++)
-//         {
-//             cout<<"Ingrese el valor de la columna "<<i+1<<" en la fila "<<j+1<<": ";
-//             cin>>n;
-//             validar_entrada();
-//             matriz[i][j]=n;
-//         } 
-//         system("cls");
-//     }
-// }
+    for (int i = 0; i < 3; i++)
+    {
+        cout<<"fila: "<<i+1<<endl;
 
-// void imprimir_matriz(int (&matriz)[3][3]){
+        for (int j = 0; j < 3; j++)
+        {
+            cout<<"Ingrese el valor de la columna "<<j+1<<": ";
+            cin>>n;
+            validar_entrada();
+            matriz[i][j]=n;
+        } 
+        system("cls");
+    }
+}
 
-//     for (int i = 0; i < 3; i++)
-//     {
-//         for (int j = 0; j < 3; j++)
-//         {
-//             cout<<matriz[i][j]<<"  ";
-//         }
+void imprimir_matriz(int (&matriz)[3][3]){
 
-//         cout<<"\n";
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cout<<matriz[i][j]<<"  ";
+        }
+
+        cout<<"\n";
         
-//     }
+    }
     
 
-// }
+}
 
-// //-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
-// void arreglos_matrices(int &opc){
+void arreglos_matrices(int &opc){
 
-//     if (opc>=1 && opc<=6)
-//     {
-//         system("cls");
-//         if (opc==1) // Ordenamiento de un arreglo (mayor a menor)
-//         {
+    if (opc>=1 && opc<=6)
+    {
+        system("cls");
+        if (opc==1) // Ordenamiento de un arreglo (mayor a menor)
+        {
 
-//             int n=10;
-//             int arr[n];
+            int n=10;
+            int arr[n];
 
-//             cout<<"Llenar el arreglo: "<<endl;
+            cout<<"Llenar el arreglo: "<<endl;
 
-//             llenar_arreglo(arr, n);
+            llenar_arreglo(arr, n);
             
-//             system("cls");
+            system("cls");
 
-//             cout<<"Arreglo Original: "<<endl;
-
-
-//             for (int i = 0; i < n; i++)
-//             {
-//                 cout<<arr[i]<<" ";
-//             }
-
-//             ordenar_burbuja(arr, n); 
-
-//             cout<<"\n\nArreglo ordenado (de mayor a menor): "<<endl;
-
-//             for (int i = 0; i < n; i++)
-//             {
-//                 cout<<arr[i]<<" ";
-//             }
+            cout<<"Arreglo Original: "<<endl;
 
 
+            for (int i = 0; i < n; i++)
+            {
+                cout<<arr[i]<<" ";
+            }
 
-//             volver(opc, 6);
+            ordenar_burbuja(arr, n); 
 
-//         }
+            cout<<"\n\nArreglo ordenado (de mayor a menor): "<<endl;
 
-//         else if (opc==2) // Buscar un valor en un arreglo
-//         {
-//             int n=10;
-//             int arr[n];
-//             int bus;
+            for (int i = 0; i < n; i++)
+            {
+                cout<<arr[i]<<" ";
+            }
 
-//             cout<<"Llenar el arreglo: "<<endl;
 
-//             llenar_arreglo(arr, n);
 
-//             cout<<"Ingrese el valor que desea buscar en el arreglo: ";
-//             cin>>bus;
+            volver(opc, 6);
 
-//             bool existe=true;
+        }
 
-//             for (int i = 0; i < n; i++)
-//             {
-//                 if (bus==arr[i])
-//                 {
-//                     existe=true;
-//                     cout<<"El valor se encuentra en la posicion del 0 al 9 en: "<<i<<" y en la posicion del 1 al 10 en: "<<i+1<<endl;
-//                     break;
-//                 }
+        else if (opc==2) // Buscar un valor en un arreglo
+        {
+            int n=10;
+            int arr[n];
+            int bus;
 
-//                 else if (!(bus==arr[i]))
-//                 {
-//                     existe=false;
-//                 }
+            cout<<"Llenar el arreglo: "<<endl;
+
+            llenar_arreglo(arr, n);
+
+            cout<<"Ingrese el valor que desea buscar en el arreglo: ";
+            cin>>bus;
+
+            bool existe=true;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (bus==arr[i])
+                {
+                    existe=true;
+                    cout<<"El valor se encuentra en la posicion del 0 al 9 en: "<<i<<" y en la posicion del 1 al 10 en: "<<i+1<<endl;
+                    break;
+                }
+
+                else if (!(bus==arr[i]))
+                {
+                    existe=false;
+                }
                 
-//             }
+            }
 
-//             if (!existe)
-//             {
-//                 cout<<"El valor no se encuentra en el arreglo";
-//             }
+            if (!existe)
+            {
+                cout<<"El valor no se encuentra en el arreglo";
+            }
 
-//             volver(opc, 6);
-//         }
+            volver(opc, 6);
+        }
 
-//         else if (opc==3) // Suma de matrices
-//         {
-//             int matriz[3][3];
-//             int matriz_2[3][3];
+        else if (opc==3) // Suma de matrices
+        {
+            int matriz[3][3];
+            int matriz_2[3][3];
 
-//             cout<<"\t\tSuma de matrices"
-//             "\n-----------------------------------------------------------------\n"
+            cout<<"\t\tSuma de matrices"
+            "\n-----------------------------------------------------------------\n"
 
-//             "llenar matriz 1: "<<endl;
-//             llenar_matriz(matriz);
+            "llenar matriz 1: "<<endl;
+            llenar_matriz(matriz);
 
-//             cout<<"llenar matriz 2: "<<endl;
-//             llenar_matriz(matriz_2);
+            cout<<"llenar matriz 2: "<<endl;
+            llenar_matriz(matriz_2);
 
-//             cout<<"Su matriz 1 es: "<<endl;
-//             imprimir_matriz(matriz);
+            cout<<"Su matriz 1 es: "<<endl;
+            imprimir_matriz(matriz);
 
-//             cout<<"Su matriz 2 es: "<<endl;
-//             imprimir_matriz(matriz_2);
+            cout<<"Su matriz 2 es: "<<endl;
+            imprimir_matriz(matriz_2);
 
-//             for (int i = 0; i < 3; i++)
-//             {
-//                 for (int j = 0; j < 3; j++)
-//                 {
-//                     matriz[i][j]+=matriz_2[i][j];
-//                 }
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    matriz[i][j]+=matriz_2[i][j];
+                }
                 
-//             }
+            }
 
-//             cout<<"\n-----------------------------------------------------------------\n";
+            cout<<"\n-----------------------------------------------------------------\n";
 
-//             cout<<"La suma de las matrices es: "<<endl;
-//             imprimir_matriz(matriz);
+            cout<<"La suma de las matrices es: "<<endl;
+            imprimir_matriz(matriz);
             
-//             volver(opc, 6);
-//         }
+            volver(opc, 6);
+        }
 
-//         else if (opc==4) //  Multiplicacion de matrices
-//         {
-//             int matriz[3][3];
-//             int matriz_2[3][3];
+        else if (opc==4) //  Multiplicacion de matrices
+        {
+            int matriz[3][3];
+            int matriz_2[3][3];
+            int matriz_3[3][3]={{0,0,0},
+                                {0,0,0},
+                                {0,0,0}};
+            int suma=0;
 
-//             cout<<"\t\tMultiplicacion de matrices"
-//             "\n-----------------------------------------------------------------\n"
 
-//             "llenar matriz 1: "<<endl;
-//             llenar_matriz(matriz);
+            cout<<"\t\tMultiplicacion de matrices"
+            "\n-----------------------------------------------------------------\n"
 
-//             cout<<"llenar matriz 2: "<<endl;
-//             llenar_matriz(matriz_2);
+            "llenar matriz 1: "<<endl;
+            llenar_matriz(matriz);
 
-//             cout<<"Su matriz 1 es: "<<endl;
-//             imprimir_matriz(matriz);
+            cout<<"llenar matriz 2: "<<endl;
+            llenar_matriz(matriz_2);
 
-//             cout<<"Su matriz 2 es: "<<endl;
-//             imprimir_matriz(matriz_2);
+            cout<<"Su matriz 1 es: "<<endl;
+            imprimir_matriz(matriz);
 
-//             for (int i = 0; i < 3; i++)
-//             {
-//                 for (int j = 0; j < 3; j++)
-//                 {
-//                     matriz[i][j]*=matriz_2[i][j];
-//                 }
+            cout<<"Su matriz 2 es: "<<endl;
+            imprimir_matriz(matriz_2);
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    suma=0;
+                    for(int k = 0; k < 3; k++)
+                    {
+                        suma+=matriz[i][k]*matriz_2[k][j];
+                        
+
+                    }
+                    
+                    matriz_3[i][j]+=suma;
+                }
                 
-//             }
+            }
 
-//             cout<<"\n-----------------------------------------------------------------\n";
+            cout<<"\n-----------------------------------------------------------------\n";
 
-//             cout<<"La multiplicacion de las matrices es: "<<endl;
-//             imprimir_matriz(matriz);
+            cout<<"La multiplicacion de las matrices es: "<<endl;
+            imprimir_matriz(matriz_3);
 
-//             volver(opc, 6);
-//         }
+            volver(opc, 6);
+        }
 
-//         else if (opc==5) // Buscar un valor en una matriz
-//         {
-//             volver(opc, 6);
-//         }
+        else if (opc==5) // Buscar un valor en una matriz
+        {
+            int matriz[3][3] = {{0, -7, 3},
+                                {2, 4, -1},
+                                {12, 7, -6}};
+            int num;
 
-//         else if (opc==6) // Volver
-//         {
-//             volver(opc, 0);
-//         }
+            cout<<"llenar matriz: "<<endl;
+            llenar_matriz(matriz);
+
+            cout<<"Su matriz es: "<<endl;
+            imprimir_matriz(matriz);
+
+            cout<<"Ingrese el valor que desea buscar: ";
+            cin>>num;
+
+            int i, j;
+            bool existe=false;
+
+            for (i = 0; i < 3; i++) 
+            {
+                for (j = 0; j < 3; j++) 
+                {
+                    if (num == matriz[i][j]) 
+                    {
+                        existe = true;
+                        break;
+                    }
+                }
+
+                if (existe) 
+                {
+                    break;
+                }
+            }
+            
+            if (!existe)
+            {
+                cout<<"El valor no se encuentra en la matriz";
+            }
+            else
+            {
+                cout<<"El valor se encuentra en la fila: "<<i+1<<" y en la columna: "<<j+1<<endl;
+            }
+            
+            volver(opc, 6);
+        }
+
+        else if (opc==6) // Volver
+        {
+            volver(opc, 0);
+        }
         
-//     }
+    }
 
-//     else{
-//         opcion_invalida(opc,6);
-//     }
+    else{
+        opcion_invalida(opc,6);
+    }
     
 
-// }
+}
 
 
 

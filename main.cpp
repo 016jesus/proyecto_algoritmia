@@ -32,6 +32,8 @@ void llenar_arreglo(int (&arr)[], int n);
 void llenar_matriz(int (&matriz)[3][3]);
 void imprimir_matriz(int (&matriz)[3][3]);
 void ordenar_burbuja(int (&arr)[], int n);
+void fibonacci(int n);
+
 
 //variable de control de ejecución
 
@@ -208,7 +210,7 @@ void menu_(int &opc){
         "\n Ingrese una opcion: ";
         cin>>opc;
         validar_entrada();
-        //varios(opc);
+        varios_(opc);
         break;
                 
         case 8:
@@ -510,8 +512,13 @@ system("cls");
         if (opc==1)
         {
             float cel;
+            cout<<"\t\tConversor de Celcius a Kelvin"
+            "\n-----------------------------------------------------------------\n";
+
                 cout<<"Ingrese el valor del Celcius : ";
                 cin>>cel;
+
+            cout<<"\n-----------------------------------------------------------------\n";
 
             cout<<"La temperatura de Celcius en grados kelvin es: "<<cel+273.15<<endl;
             system("pause");
@@ -521,8 +528,13 @@ system("cls");
         else if (opc==2) //kelvin a fahrenheit
         {
             float kel;
+            cout<<"\t\tConversor de Kelvin a Fahrenheit"
+            "\n-----------------------------------------------------------------\n";
+
                 cout<<"Ingrese el valor del Kelvin : ";
                 cin>>kel;
+
+            cout<<"\n-----------------------------------------------------------------\n";
 
             cout<<"La temperatura de Kelvin en grados Fahrenheit es: "<<((kel-273.16)*9/5)+32<<endl;
             system("pause");
@@ -532,8 +544,13 @@ system("cls");
         else if (opc==3) //fahrenheit a celcius
         {
             float fa;
+            cout<<"\t\tConversor de Fahrenheit a Celcius"
+            "\n-----------------------------------------------------------------\n";
+
                 cout<<"Ingrese el valor del Fahrenheit : ";
                 cin>>fa;
+
+            cout<<"\n-----------------------------------------------------------------\n";
 
             cout<<"La temperatura de Fahrenheit en grados Celcius es: "<<(fa-32)*5/9<<endl;
             system("pause");
@@ -764,11 +781,11 @@ void numericos_(int &opc){
              validar_entrada();
               short  digitos = bin.length() - 1;
     
-    for(short i = 0; i <= digitos; i++){
-        if(bin[i] == '1'){
-            decimal = decimal + pow(2, digitos - i);
-        }
-    }
+            for(short i = 0; i <= digitos; i++){
+                if(bin[i] == '1'){
+                    decimal = decimal + pow(2, digitos - i);
+                }
+            }
 
             cout<<"\n-----------------------------------------------------------------\n"
             "Su numero decimal es:\n"<<decimal;
@@ -791,17 +808,19 @@ void numericos_(int &opc){
 
     
 
-    while (octal/pow(10, digitos) > 1){
-        digitos = digitos + 1;
-    }
-    
-    digitos = digitos - 1;
-        
-    for(i = 0; i <= digitos; i++){
-        digito = octal/pow (10, digitos - i);
-        octal = octal-(digito * pow (10, digitos - i));
-        decimal = decimal + (digito * pow(8, digitos - i));
-    }
+            while (octal/pow(10, digitos) > 1)
+            {
+                digitos = digitos + 1;
+            }
+            
+            digitos = digitos - 1;
+                
+            for(i = 0; i <= digitos; i++)
+            {
+                digito = octal/pow (10, digitos - i);
+                octal = octal-(digito * pow (10, digitos - i));
+                decimal = decimal + (digito * pow(8, digitos - i));
+            }
 
             cout<<"\n-----------------------------------------------------------------\n"
             "Su numero decimal es:\n"<<decimal<<endl;
@@ -823,22 +842,23 @@ void numericos_(int &opc){
               short i = 0, digitos = 0;
    
 
-    digitos = hex.length() - 1;
-    
-    for(i = 0; i <= digitos; i++){
-        // Letras de la A a la F
-        if(hex[i] >= 65 && hex[i] <= 70){
-            decimal = decimal + ((hex[i] - 55) * pow(16, digitos - i));
-        }
-        // Letras de la a a la f
-        else if(hex[i] >= 97 && hex[i] <= 102){
-            decimal = decimal + ((hex[i] - 87) * pow(16, digitos - i));
-        }
-        // Numeros del 0 al 9   
-        else if (hex[i] >= 48 && hex[i] <= 57){
-            decimal = decimal + ((hex[i] - 48) * pow(16, digitos - i));
-        }
-    }
+            digitos = hex.length() - 1;
+            
+            for(i = 0; i <= digitos; i++)
+            {
+                // Letras de la A a la F
+                if(hex[i] >= 65 && hex[i] <= 70){
+                    decimal = decimal + ((hex[i] - 55) * pow(16, digitos - i));
+                }
+                // Letras de la a a la f
+                else if(hex[i] >= 97 && hex[i] <= 102){
+                    decimal = decimal + ((hex[i] - 87) * pow(16, digitos - i));
+                }
+                // Numeros del 0 al 9   
+                else if (hex[i] >= 48 && hex[i] <= 57){
+                    decimal = decimal + ((hex[i] - 48) * pow(16, digitos - i));
+                }
+            }
 
             cout<<"Su numero decimal es: "<<decimal<<endl;
 
@@ -848,7 +868,6 @@ void numericos_(int &opc){
 
         else if (opc==7) // volver
         {
-           
             volver(opc, 0);
         }   
             
@@ -878,6 +897,8 @@ void numericos_(int &opc){
 
 
 // funciones adicionales ------------------------------------------------------
+
+
 void llenar_arreglo(int (&arr)[], int n){
 
     int cont = 0;
@@ -960,7 +981,9 @@ void imprimir_matriz(int (&matriz)[3][3]){
 
 }
 
+
 //-----------------------------------------------------------------------------
+
 
 void arreglos_matrices(int &opc){
 
@@ -972,6 +995,9 @@ void arreglos_matrices(int &opc){
 
             int n=10;
             int arr[n];
+
+            cout<<"\t\tOrdenamiento de un arreglo"
+            "\n-----------------------------------------------------------------\n";
 
             cout<<"Llenar el arreglo: "<<endl;
 
@@ -996,6 +1022,7 @@ void arreglos_matrices(int &opc){
                 cout<<arr[i]<<" ";
             }
 
+            cout<<"\n-----------------------------------------------------------------\n";
 
 
             volver(opc, 6);
@@ -1007,6 +1034,9 @@ void arreglos_matrices(int &opc){
             int n=10;
             int arr[n];
             int bus;
+
+            cout<<"\t\tBuscar un valor en un arreglo"
+            "\n-----------------------------------------------------------------\n";
 
             cout<<"Llenar el arreglo: "<<endl;
 
@@ -1078,7 +1108,7 @@ void arreglos_matrices(int &opc){
             volver(opc, 6);
         }
 
-        else if (opc==4) //  Multiplicacion de matrices
+        else if (opc==4) //  Multiplicación de matrices
         {
             int matriz[3][3];
             int matriz_2[3][3];
@@ -1130,10 +1160,13 @@ void arreglos_matrices(int &opc){
 
         else if (opc==5) // Buscar un valor en una matriz
         {
-            int matriz[3][3] = {{0, -7, 3},
-                                {2, 4, -1},
-                                {12, 7, -6}};
+            int matriz[3][3] = {{0, 0, 0},
+                                {0, 0, 0},
+                                {0, 0, 0}};
             int num;
+            
+            cout<<"\t\tBuscar un valor en una matriz"
+            "\n-----------------------------------------------------------------\n";
 
             cout<<"llenar matriz: "<<endl;
             llenar_matriz(matriz);
@@ -1205,12 +1238,52 @@ void arreglos_matrices(int &opc){
 
 
 
+
+// Funciones adicionales--------------------------------------------------------
+
+void fibonacci(int n) {
+    int a = 0, b = 1, temp = 0;
+
+    for (int i = 0; i < n; ++i) 
+    {
+        cout << a << "   ";
+
+        temp = a;
+        a = b;
+        b = temp + b;
+    }
+}
+
+//------------------------------------------------------------------------------
+
+
 void varios_(int &opc){
 
     if (opc>=1 && opc<=7)
     {
         if (opc==1) // Distancia entre dos puntos
         {
+            float distancia, x1, y1, x2, y2;
+
+            cout<<"\t\tDistancia entre dos puntos"
+            "\n-----------------------------------------------------------------\n";
+
+            cout<<"Ingrese el valor de X1: ";
+            cin>>x1;
+            cout<<"Ingrese el valor de Y1: ";
+            cin>>y1;
+            cout<<"Ingrese el valor de X2: ";
+            cin>>x2;
+            cout<<"Ingrese el valor de Y2: ";
+            cin>>y2;
+            validar_entrada();
+
+            distancia = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+
+            cout<<"\n-----------------------------------------------------------------\n";
+            
+                cout<<"La distancia entre los puntos \n"
+                      "("<<x1<<" , "<<y1<<") y ("<<x2<<" , "<<y2<<") es: "<<distancia;
             volver(opc, 7);
         }
 
@@ -1218,8 +1291,10 @@ void varios_(int &opc){
         {
             int a, b, c, arg_raiz;
             float x1, x2;
+
             cout<<"\t\tRaices de una funcion cuadratica"
             "\n-----------------------------------------------------------------\n";
+
             cout<<"Ingrese el valor de A: ";
             cin>>a;
             cout<<"Ingrese el valor de B: ";
@@ -1229,7 +1304,9 @@ void varios_(int &opc){
             validar_entrada();
 
             arg_raiz = pow(b, 2) - (4*a*c);
+
             cout<<"\n-----------------------------------------------------------------\n";
+
             if(arg_raiz < 0)
             {
                 cout<<"La funcion no tiene raices reales";
@@ -1247,17 +1324,45 @@ void varios_(int &opc){
 
         else if (opc==3) // Factorial
         {
+            int num=0;
+            int fac=1;
+
+            cout<<"\t\tNumero factorial"
+            "\n-----------------------------------------------------------------\n";
+
+            cout<<"Ingrese el numero factorial: ";
+            cin>>num;
+
+            for (int i = 1 ; i <= num; i++)
+            {
+                fac*=i;
+            }
+            cout<<"el numero factorial es: "<<fac;
+            
+
             volver(opc, 7);
         }
 
         else if (opc==4) // Fibonacci
         {
+            int n;
+
+            cout <<"\t\tSucesion de Fibonacci"
+            "\n-----------------------------------------------------------------\n"
+            "Ingrese el numero de terminos a mostrar ";
+            cin >> n;
+            validar_entrada();
+            fibonacci(n);
+
             volver(opc, 7);
         }
 
         else if (opc==5) // primo
         {
             int n = 0, c = 1, m = 2;
+
+            cout<<"\t\tNumero primo"
+            "\n-----------------------------------------------------------------\n";
 
             cout<<"Ingrese un numero: ";
             cin>>n;
@@ -1279,6 +1384,49 @@ void varios_(int &opc){
         
         else if (opc==6) // Numeros Amigos
         {
+            int num1=0,num2=0;
+            int suma1=0,suma2=0;
+
+            cout<<"Ingresa el primer numero: ";
+            cin>>num1;
+
+            cout<<"Ingresa el segundo numero: ";
+            cin>>num2;
+
+            for (int i = 1; i < num1; i++)
+            {
+                if (num1%i==0)
+                {
+                    suma1+=i;
+                }
+                
+            }
+            
+            cout<<"la suma de los divisores del primer numero es: "<<suma1<<endl;
+
+            for (int j = 1; j < num2; j++)
+            {
+                if (num2%j==0)
+                {
+                    suma2+=j;
+                }
+                
+            }
+
+            cout<<"la suma de los divisores del segundo numero es: "<<suma2<<endl;
+
+            if (suma1==num2 && suma2==num1)
+            {
+                cout<<"los numeros "<<num1<<" y "<<num2<<" son amigos"<<endl;
+            }
+
+            else
+            {
+                cout<<"los numeros "<<num1<<" y "<<num2<<" no son amigos"<<endl;
+            }
+            
+            
+
             volver(opc, 7);
         }
 
@@ -1299,16 +1447,7 @@ void varios_(int &opc){
 
 
 
-
-
-
-
-
-
-
-
-
-
+// Funciones de manejo de codigo
 
 
 

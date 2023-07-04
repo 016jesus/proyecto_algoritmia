@@ -33,7 +33,7 @@ void llenar_matriz(int (&matriz)[3][3]);
 void imprimir_matriz(int (&matriz)[3][3]);
 void ordenar_burbuja(int (&arr)[], int n);
 void fibonacci(int n);
-
+bool v_cadena_decimal(string cadena);
 
 //variable de control de ejecución
 
@@ -679,7 +679,14 @@ void monedas_(int &opc){
 
 
 
-
+bool v_cadena_decimal(string cadena) {
+    for (char c : cadena) {
+        if (!isdigit(c) && c != '.' && c != '-') {
+            return false;
+        }
+    }
+    return true;
+}
 
 
 void numericos_(int &opc){
@@ -794,13 +801,24 @@ void numericos_(int &opc){
 
         else if (opc==5) //octal a decimal
         {
-            long long octal;
-
+            string cadena;
+            bool condicion_n=true;
             cout<<"\t\tConversor Octal a Decimal"
               "\n-----------------------------------------------------------------\n"
             "Escriba el numero octal que desea convertir:\n";
-            cin>>octal;
-            validar_entrada();
+            cin>>cadena;
+            for (char c: cadena)
+            {
+                if (c == '8' || c == '9')
+                {
+                    condicion_n=false;
+                }
+                
+            }
+
+            if(v_cadena_decimal(cadena) && condicion_n){
+            int octal = stod(cadena);
+             
             
              short i = 0, digitos = 0, digito = 0;
              long long decimal = 0;
@@ -827,6 +845,10 @@ void numericos_(int &opc){
            
             volver(opc, 5);
         }
+        else{
+            opcion_invalida(opc, 5);
+        }
+        } 
 
         else if (opc==6) //hexadecimal a decimal
         {

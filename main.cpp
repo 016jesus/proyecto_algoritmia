@@ -257,7 +257,7 @@ void areas_(int &opc)
                 cout<<"ingrese el valor de la altura:\n";
                 cin>>altura;
                 cout<< "\n-----------------------------------------------------------------";
-                 validar_entrada();
+                validar_entrada();
             if (base<=0 || altura<=0)
             {
                cout<<"\nLos valores son invalidos"<<endl;
@@ -522,7 +522,7 @@ system("cls");
 
             cout<<"La temperatura de Celcius en grados kelvin es: "<<cel+273.15<<endl;
             system("pause");
-                volver(opc, 3);   
+            volver(opc, 3);   
         }
 
         else if (opc==2) //kelvin a fahrenheit
@@ -571,8 +571,22 @@ system("cls");
 }
 
 
+
+
+
+
+
+
 //Monedas
 
+
+
+
+
+
+
+
+//funciones adicionales---------------------------------------------------------
 
 void convertir_monedas(string m_1, string m_2){
 
@@ -600,22 +614,7 @@ void convertir_monedas(string m_1, string m_2){
             }
 }
 
-
-
-
-
-
-
-
-//Monedas
-
-
-
-
-
-
-
-
+//------------------------------------------------------------------------------
 
 void monedas_(int &opc){
 
@@ -623,7 +622,7 @@ void monedas_(int &opc){
 
     if (opc>=1 && opc<=7) 
     {
-
+        system("cls");
 
         if (opc == 1) //pesos a dolares
         {
@@ -971,7 +970,7 @@ void imprimir_matriz(int (&matriz)[3][3]){
     {
         for (int j = 0; j < 3; j++)
         {
-            cout<<matriz[i][j]<<"  ";
+            cout<<matriz[i][j]<<"    ";
         }
 
         cout<<"\n";
@@ -1041,8 +1040,14 @@ void arreglos_matrices(int &opc){
             cout<<"Llenar el arreglo: "<<endl;
 
             llenar_arreglo(arr, n);
-
-            cout<<"Ingrese el valor que desea buscar en el arreglo: ";
+            system("cls");
+            cout<<"Su arreglo es :\n";
+            for (int i = 0; i < n; i++)
+            {
+                cout<<arr[i]<<"   ";
+            }
+            
+            cout<<"\nIngrese el valor que desea buscar en el arreglo: ";
             cin>>bus;
 
             bool existe=true;
@@ -1052,7 +1057,7 @@ void arreglos_matrices(int &opc){
                 if (bus==arr[i])
                 {
                     existe=true;
-                    cout<<"El valor se encuentra en la posicion del 0 al 9 en: "<<i<<" y en la posicion del 1 al 10 en: "<<i+1<<endl;
+                    cout<<"\nEl valor se encuentra en la posicion del 0 al 9 en: "<<i<<" y en la posicion del 1 al 10 en: "<<i+1<<endl;
                     break;
                 }
 
@@ -1242,11 +1247,13 @@ void arreglos_matrices(int &opc){
 // Funciones adicionales--------------------------------------------------------
 
 void fibonacci(int n) {
-    int a = 0, b = 1, temp = 0;
+    int a = 1, b = 1, temp = 0;
 
     for (int i = 0; i < n; ++i) 
     {
-        cout << a << "   ";
+      
+            cout << a << "   ";
+       
 
         temp = a;
         a = b;
@@ -1261,6 +1268,7 @@ void varios_(int &opc){
 
     if (opc>=1 && opc<=7)
     {
+        system("cls");
         if (opc==1) // Distancia entre dos puntos
         {
             float distancia, x1, y1, x2, y2;
@@ -1387,6 +1395,9 @@ void varios_(int &opc){
             int num1=0,num2=0;
             int suma1=0,suma2=0;
 
+            cout<<"\t\tNumeros amigos"
+            "\n-----------------------------------------------------------------\n";
+
             cout<<"Ingresa el primer numero: ";
             cin>>num1;
 
@@ -1435,6 +1446,10 @@ void varios_(int &opc){
             volver(opc, 0);
         }
 
+    }
+
+    else {
+        opcion_invalida(opc, 7);
     }
     
 

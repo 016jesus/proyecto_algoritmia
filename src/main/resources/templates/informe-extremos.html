@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Notas Extremas</title>
+</head>
+<body>
+    <h1>Informe de Notas Más Altas y Más Bajas</h1>
+    
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/nuevo">Agregar Estudiante</a> |
+        <a href="/informe-promedio">Informe Promedio Total</a> |
+        <a href="/informe-extremos">Informe Notas Extremas</a>
+    </nav>
+    
+    <hr>
+    
+    <h2>Notas Extremas por Evaluación</h2>
+    
+    <h3>Nota 1 (20%)</h3>
+    <table border="1">
+        <tr>
+            <th>Nota Más Alta</th>
+            <td th:text="${maxNota1}"></td>
+        </tr>
+        <tr>
+            <th>Nota Más Baja</th>
+            <td th:text="${minNota1}"></td>
+        </tr>
+    </table>
+    
+    <h3>Nota 2 (40%)</h3>
+    <table border="1">
+        <tr>
+            <th>Nota Más Alta</th>
+            <td th:text="${maxNota2}"></td>
+        </tr>
+        <tr>
+            <th>Nota Más Baja</th>
+            <td th:text="${minNota2}"></td>
+        </tr>
+    </table>
+    
+    <h3>Nota 3 (40%)</h3>
+    <table border="1">
+        <tr>
+            <th>Nota Más Alta</th>
+            <td th:text="${maxNota3}"></td>
+        </tr>
+        <tr>
+            <th>Nota Más Baja</th>
+            <td th:text="${minNota3}"></td>
+        </tr>
+    </table>
+    
+    <hr>
+    <p><a href="/">Volver al Inicio</a></p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Notas - Estudiantes</title>
+</head>
+<body>
+    <h1>Sistema de Registro de Notas de Estudiantes</h1>
+    
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/nuevo">Agregar Estudiante</a> |
+        <a href="/informe-promedio">Informe Promedio Total</a> |
+        <a href="/informe-extremos">Informe Notas Extremas</a>
+    </nav>
+    
+    <hr>
+    
+    <h2>Lista de Estudiantes</h2>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nota 1 (20%)</th>
+                <th>Nota 2 (40%)</th>
+                <th>Nota 3 (40%)</th>
+                <th>Promedio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="estudiante : ${estudiantes}">
+                <td th:text="${estudiante.codigo}"></td>
+                <td th:text="${estudiante.nota1}"></td>
+                <td th:text="${estudiante.nota2}"></td>
+                <td th:text="${estudiante.nota3}"></td>
+                <td th:text="${#numbers.formatDecimal(estudiante.promedio, 1, 2)}"></td>
+                <td>
+                    <a th:href="@{/informe-estudiante/{id}(id=${estudiante.id})}">Ver Informe</a> |
+                    <a th:href="@{/editar/{id}(id=${estudiante.id})}">Editar</a> |
+                    <a th:href="@{/eliminar/{id}(id=${estudiante.id})}" 
+                       onclick="return confirm('¿Está seguro de eliminar este estudiante?')">Eliminar</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(estudiantes)}">
+                <td colspan="6">No hay estudiantes registrados</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

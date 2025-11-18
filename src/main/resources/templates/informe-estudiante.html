@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Estudiante</title>
+</head>
+<body>
+    <h1>Informe Individual del Estudiante</h1>
+    
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/nuevo">Agregar Estudiante</a> |
+        <a href="/informe-promedio">Informe Promedio Total</a> |
+        <a href="/informe-extremos">Informe Notas Extremas</a>
+    </nav>
+    
+    <hr>
+    
+    <h2>Información del Estudiante</h2>
+    <table border="1">
+        <tr>
+            <th>Código del Estudiante</th>
+            <td th:text="${estudiante.codigo}"></td>
+        </tr>
+        <tr>
+            <th>Nota 1 (20%)</th>
+            <td th:text="${estudiante.nota1}"></td>
+        </tr>
+        <tr>
+            <th>Nota 2 (40%)</th>
+            <td th:text="${estudiante.nota2}"></td>
+        </tr>
+        <tr>
+            <th>Nota 3 (40%)</th>
+            <td th:text="${estudiante.nota3}"></td>
+        </tr>
+        <tr>
+            <th>Promedio Final</th>
+            <td th:text="${#numbers.formatDecimal(estudiante.promedio, 1, 2)}"></td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <h3>Cálculo del Promedio</h3>
+    <p>
+        Promedio = (Nota1 × 0.20) + (Nota2 × 0.40) + (Nota3 × 0.40)<br>
+        Promedio = (<span th:text="${estudiante.nota1}"></span> × 0.20) + 
+                   (<span th:text="${estudiante.nota2}"></span> × 0.40) + 
+                   (<span th:text="${estudiante.nota3}"></span> × 0.40)<br>
+        Promedio = <span th:text="${#numbers.formatDecimal(estudiante.promedio, 1, 2)}"></span>
+    </p>
+    
+    <hr>
+    <p><a href="/">Volver al Inicio</a></p>
+</body>
+</html>

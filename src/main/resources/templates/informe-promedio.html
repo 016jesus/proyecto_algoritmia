@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Promedio Total</title>
+</head>
+<body>
+    <h1>Informe de Promedio Total</h1>
+    
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/nuevo">Agregar Estudiante</a> |
+        <a href="/informe-promedio">Informe Promedio Total</a> |
+        <a href="/informe-extremos">Informe Notas Extremas</a>
+    </nav>
+    
+    <hr>
+    
+    <h2>Promedio General de la Materia</h2>
+    <p><strong>Promedio Total: </strong><span th:text="${#numbers.formatDecimal(promedioTotal, 1, 2)}"></span></p>
+    
+    <hr>
+    
+    <h2>Detalle por Estudiante</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nota 1 (20%)</th>
+                <th>Nota 2 (40%)</th>
+                <th>Nota 3 (40%)</th>
+                <th>Promedio Individual</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="estudiante : ${estudiantes}">
+                <td th:text="${estudiante.codigo}"></td>
+                <td th:text="${estudiante.nota1}"></td>
+                <td th:text="${estudiante.nota2}"></td>
+                <td th:text="${estudiante.nota3}"></td>
+                <td th:text="${#numbers.formatDecimal(estudiante.promedio, 1, 2)}"></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(estudiantes)}">
+                <td colspan="5">No hay estudiantes registrados</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    <p><a href="/">Volver al Inicio</a></p>
+</body>
+</html>
